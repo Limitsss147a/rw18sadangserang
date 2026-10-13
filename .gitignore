@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+website/node_modules/
+
+# Next.js build output
+.next/
+website/.next/
+out/
+website/out/
+build/
+website/build/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment
+.env*
+website/.env*
+
+# OS & IDE
+.DS_Store
+Thumbs.db
+*.tsbuildinfo
+next-env.d.ts
+website/next-env.d.ts
+.vercel/
+website/.vercel/
