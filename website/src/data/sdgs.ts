@@ -42,7 +42,7 @@ export const sdgsData: SDG[] = [
       'Mengambil aksi nyata dalam memitigasi dampak perubahan iklim dengan mencegah pembentukan gas metana dari timbunan sampah basah melalui daur ulang organik biologis.',
     color: '#3F7E44',
     icon: 'Globe',
-    facilities: ['rumah-maggot'],
+    facilities: ['rumah-maggot', 'bata-terawang'],
   },
   {
     number: 15,
@@ -61,7 +61,7 @@ export const sdgToFacilitiesMapping: Record<number, string[]> = {
   2: ['buruan-sae'],
   11: ['taman-dahlia', 'rumah-maggot', 'buruan-sae', 'bata-terawang'],
   12: ['rumah-maggot', 'buruan-sae', 'bata-terawang'],
-  13: ['rumah-maggot'],
+  13: ['rumah-maggot', 'bata-terawang'],
   15: ['taman-dahlia'],
 };
 
@@ -69,7 +69,7 @@ export const facilityToSdgsMapping: Record<string, number[]> = {
   'taman-dahlia': [11, 15],
   'rumah-maggot': [11, 12, 13],
   'buruan-sae': [2, 11, 12],
-  'bata-terawang': [11, 12],
+  'bata-terawang': [11, 12, 13],
 };
 
 export const sdgFacilityMapping = sdgToFacilitiesMapping;
