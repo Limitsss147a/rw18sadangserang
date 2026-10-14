@@ -1,14 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import * as THREE from "three";
 
 export default function Diorama3D() {
   const mountRef = useRef<HTMLDivElement>(null);
-  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setIsClient(true);
     const container = mountRef.current;
     if (!container) return;
 
@@ -310,8 +308,8 @@ export default function Diorama3D() {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("resize", handleResize);
       renderer.dispose();
-      if (container && renderer.domElement) {
-        container.removeChild(renderer.domElement);
+      if (renderer.domElement.parentNode === container) {
+        renderer.domElement.remove();
       }
     };
   }, []);
@@ -323,11 +321,9 @@ export default function Diorama3D() {
         ref={mountRef}
         className="w-full h-[420px] sm:h-[460px] rounded-3xl bg-gradient-to-b from-blue-50/50 to-emerald-50/50 shadow-inner relative overflow-hidden"
       >
-        {!isClient && (
           <div className="w-full h-full flex items-center justify-center text-slate-400 text-sm">
             Memuat Diorama 3D...
           </div>
-        )}
       </div>
 
       {/* Floating Badges */}
