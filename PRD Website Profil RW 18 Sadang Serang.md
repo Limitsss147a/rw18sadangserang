@@ -4,13 +4,13 @@ Product Requirements Document | Program KKN UNIKOM x Pemprov Jabar | Divisi PDD 
 
 ## 1. Ringkasan Produk
 
-Website profil RW 18 adalah situs informasi publik yang memperkenalkan fasilitas lingkungan RW 18 Kelurahan Sadang Serang, yaitu Taman Dahlia, Rumah Maggot, Buruan SAE, dan Bata Terawang, sebagai praktik nyata penerapan Tujuan Pembangunan Berkelanjutan (SDGs) tingkat RW. Situs ini juga menjadi pusat edukasi pembuangan sampah terpilah melalui booklet digital dan video edukasi.
+Website profil RW 18 adalah situs informasi publik yang memperkenalkan fasilitas lingkungan RW 18 Kelurahan Sadang Serang, yaitu Taman Dahlia, Rumah Maggot, dan Buruan SAE, sebagai praktik nyata penerapan Tujuan Pembangunan Berkelanjutan (SDGs) tingkat RW. Situs ini juga menjadi pusat edukasi pembuangan sampah terpilah melalui booklet digital dan video edukasi.
 
 **Pernyataan nilai:** warga, mahasiswa, dan pihak luar dapat memahami apa yang dikerjakan RW 18 dalam waktu kurang dari dua menit, dan mengetahui cara membuang sampah secara terpilah dalam waktu kurang dari lima menit.
 
 ## 2. Latar Belakang dan Masalah
 
-- Fasilitas RW 18 (Taman Dahlia, Rumah Maggot, Buruan SAE) belum memiliki satu media informasi terpusat yang dapat diakses publik.
+- Fasilitas RW 18 (Taman Dahlia, Rumah Maggot, Buruan SAE, Bata Terawang) belum memiliki satu media informasi terpusat yang dapat diakses publik.
 - Materi edukasi pemilahan sampah (booklet dan video) tersebar di beberapa kanal sehingga sulit ditemukan kembali.
 - Pesan inti dari DLH Kota Bandung perlu konsisten: tugas warga adalah **membuang sampah secara terpilah sejak dari sumber (rumah)**, bukan mengumpulkan sampah tercampur lalu memilahnya kemudian.
 - Capaian RW 18 belum terdokumentasi dalam kerangka SDGs sehingga sulit dijadikan rujukan oleh pihak kelurahan, DLH, maupun kampus.
@@ -19,7 +19,7 @@ Website profil RW 18 adalah situs informasi publik yang memperkenalkan fasilitas
 
 | Tujuan | Indikator | Target awal |
 | --- | --- | --- |
-| Menyediakan profil terpusat fasilitas RW 18 | Jumlah halaman fasilitas terpublikasi | 4 fasilitas lengkap (foto, deskripsi, lokasi, SDGs) |
+| Menyediakan profil terpusat fasilitas RW 18 | Jumlah halaman fasilitas terpublikasi | 3 fasilitas lengkap (foto, deskripsi, lokasi, SDGs) |
 | Menyebarkan edukasi sampah terpilah | Unduhan booklet dan penayangan video | Dipantau mingguan; target ditetapkan setelah baseline minggu pertama |
 | Menjangkau berbagai kalangan | Skor aksesibilitas dan keterbacaan | Lighthouse Accessibility ≥ 90; dapat dipakai tanpa panduan oleh lansia |
 | Performa memadai di perangkat warga | Kecepatan muat di jaringan seluler | LCP ≤ 2,5 detik pada 4G; halaman awal ≤ 3 MB |
@@ -40,7 +40,7 @@ Website profil RW 18 adalah situs informasi publik yang memperkenalkan fasilitas
 **Termasuk (in scope):**
 
 - Situs publik statis-dinamis berbahasa Indonesia
-- Profil empat fasilitas: Taman Dahlia, Rumah Maggot, Buruan SAE, dan Bata Terawang
+- Profil tiga fasilitas: Taman Dahlia, Rumah Maggot, Buruan SAE
 - Pemetaan keterkaitan fasilitas dengan SDGs
 - Pusat edukasi: booklet digital dan video pemilahan sampah
 - Galeri foto dan peta lokasi
@@ -61,8 +61,7 @@ Beranda
 ├── Fasilitas
 │   ├── Taman Dahlia
 │   ├── Rumah Maggot
-│   ├── Buruan SAE
-│   └── Bata Terawang
+│   └── Buruan SAE
 ├── SDGs di RW 18 (pemetaan fasilitas ke tujuan SDGs)
 ├── Edukasi Sampah Terpilah
 │   ├── Panduan 3 Jenis Sampah
@@ -86,7 +85,7 @@ Prioritas: **P0** wajib pada rilis awal, **P1** sebaiknya ada, **P2** pengembang
 | F-04 | Blok ajakan "Buang Sampah Terpilah" menuju halaman edukasi | P0 |
 | F-05 | Cuplikan galeri dan video unggulan | P1 |
 
-### 7.2 Halaman Fasilitas (Taman Dahlia, Rumah Maggot, Buruan SAE, Bata Terawang)
+### 7.2 Halaman Fasilitas (Taman Dahlia, Rumah Maggot, Buruan SAE)
 
 Setiap halaman memiliki struktur seragam agar mudah dikelola:
 
@@ -131,7 +130,6 @@ Pemetaan berikut merupakan usulan awal dan perlu dikonfirmasi bersama pengurus R
 | Taman Dahlia | SDG 11 (Kota dan Permukiman Berkelanjutan), SDG 15 (Ekosistem Daratan) | Ruang terbuka hijau dan ruang interaksi warga |
 | Rumah Maggot | SDG 12 (Konsumsi dan Produksi yang Bertanggung Jawab), SDG 11, SDG 13 (Penanganan Perubahan Iklim) | Pengolahan sampah organik, pengurangan beban TPA |
 | Buruan SAE | SDG 2 (Tanpa Kelaparan), SDG 12, SDG 11 | Pangan lokal dari pekarangan dan pemanfaatan kasgot sebagai pupuk |
-| Bata Terawang | SDG 11 (Kota dan Permukiman Berkelanjutan), SDG 12 (Konsumsi dan Produksi yang Bertanggung Jawab) | Pemanfaatan material lokal untuk infrastruktur lingkungan yang estetis dan fungsional |
 
 ## 9. Arah Desain
 
@@ -211,7 +209,7 @@ Tujuan elemen 3D adalah memberi kesan modern tanpa mengorbankan keterbacaan dan 
 
 | Aset | Penanggung jawab | Status |
 | --- | --- | --- |
-| Foto resolusi tinggi Taman Dahlia, Rumah Maggot, Buruan SAE, Bata Terawang (lanskap, minimal 1920 px) | PDD | Sebagian tersedia |
+| Foto resolusi tinggi Taman Dahlia, Rumah Maggot, Buruan SAE (lanskap, minimal 1920 px) | PDD | Perlu dikumpulkan |
 | Booklet pemilahan sampah (PDF final) | PDD | Dalam proses |
 | Video edukasi dan video TTW pilihan | PDD | Sebagian tersedia |
 | Teks deskripsi tiap fasilitas dan data pengelola | Divisi Humas dan pengurus RW | Perlu diverifikasi |
