@@ -199,9 +199,9 @@ export const facilities: Facility[] = [
     id: 'bata-terawang',
     name: 'Bata Terawang',
     slug: 'bata-terawang',
-    tagline: 'Inovasi Infrastruktur Berpori untuk Sirkulasi Udara & Estetika Lorong',
+    tagline: 'Pengomposan Aerobik Sampah Organik dengan Susunan Bata Berongga',
     description:
-      'Bata Terawang (Roster Perforated Brick) adalah sentuhan arsitektur vernakular berkelanjutan yang diaplikasikan pada dinding pembatas gang dan fasilitas umum RW 18. Dengan rongga geometris artistik, bata terawang memaksimalkan pencahayaan alami, melancarkan aliran angin mikro di lorong padat, serta memberikan identitas visual lingkungan yang estetik dan ramah lingkungan.',
+      'Bata Terawang adalah metode atau sarana pengolahan sampah organik (seperti sisa makanan dan sampah kebun) menjadi pupuk kompos menggunakan susunan batu bata yang sengaja disusun tidak rapat atau berongga. Rongga antar bata memungkinkan sirkulasi udara alami yang optimal, sehingga proses dekomposisi aerobik berjalan efisien tanpa menimbulkan bau tidak sedap. Metode ini merupakan inovasi lokal warga RW 18 yang murah, mudah dibuat, dan sangat efektif menghasilkan kompos berkualitas tinggi.',
     heroImage: '/images/facilities/bata-terawang-1.jpg',
     images: [
       '/images/facilities/bata-terawang-1.jpg',
@@ -212,42 +212,48 @@ export const facilities: Facility[] = [
         number: 11,
         title: 'Kota dan Permukiman yang Berkelanjutan',
         description:
-          'Meningkatkan kenyamanan termal dan ventilasi alami di lorong padat penduduk, sekaligus memperindah tata ruang visual lingkungan RW 18.',
+          'Mengurangi volume sampah organik rumah tangga yang berakhir di TPA, serta menciptakan lingkungan permukiman yang lebih bersih dan bebas bau.',
       },
       {
         number: 12,
         title: 'Konsumsi dan Produksi yang Bertanggung Jawab',
         description:
-          'Menggunakan material konstruksi lokal yang awet, minim perawatan, dan dirancang tahan cuaca jangka panjang dengan efisiensi energi optimal.',
+          'Menerapkan prinsip ekonomi sirkular dengan mengubah limbah organik dapur dan kebun menjadi pupuk kompos yang bermanfaat untuk pertanian urban.',
+      },
+      {
+        number: 13,
+        title: 'Penanganan Perubahan Iklim',
+        description:
+          'Menekan emisi gas metana dari penumpukan sampah organik dengan mengolahnya secara aerobik langsung di sumber, mengurangi jejak karbon rumah tangga.',
       },
     ],
     steps: [
       {
-        title: 'Pengumpulan Material Lokal',
+        title: 'Pemilahan Sampah Organik',
         description:
-          'Pemilihan bahan baku semen, pasir ayak, dan agregat berkualitas dari pengrajin lokal untuk memastikan kekuatan struktural.',
-        icon: 'Boxes',
+          'Warga memilah sisa makanan dapur, kulit buah, sayur layu, dan sampah kebun dari sampah anorganik dan residu sebelum dimasukkan ke bak kompos.',
+        icon: 'Trash2',
       },
       {
-        title: 'Pembuatan Bata',
+        title: 'Penyusunan Bata Berongga',
         description:
-          'Pencetakan bata roster berongga presisi dengan pola geometris yang dirancang untuk mengoptimalkan tangkapan cahaya dan angin.',
-        icon: 'Hammer',
-      },
-      {
-        title: 'Pemasangan Terawang',
-        description:
-          'Pemasangan dinding terawang secara terencana di titik-titik krusial sirkulasi gang, pagar komunal, dan batas taman.',
+          'Batu bata disusun membentuk bak pengomposan dengan celah-celah strategis yang memastikan aliran udara merata ke seluruh tumpukan material organik.',
         icon: 'Grid3X3',
       },
       {
-        title: 'Infrastruktur Estetis',
+        title: 'Proses Dekomposisi Aerobik',
         description:
-          'Penyelesaian dinding terawang yang menghasilkan bayangan dinamis estetik, suhu lingkungan lebih sejuk, dan lorong yang fotogenik.',
-        icon: 'Sparkles',
+          'Sampah organik terurai secara alami oleh mikroorganisme aerobik. Sirkulasi udara dari rongga bata mempercepat proses dan mencegah pembusukan anaerob.',
+        icon: 'RefreshCw',
+      },
+      {
+        title: 'Panen Pupuk Kompos',
+        description:
+          'Setelah 4–8 minggu, kompos matang dipanen dan digunakan untuk menyuburkan tanaman Buruan SAE, Taman Dahlia, atau dibagikan kepada warga.',
+        icon: 'Sprout',
       },
     ],
-    color: '#BF360C',
+    color: '#795548',
   },
 ];
 
