@@ -8,22 +8,21 @@ export interface NavItem {
 }
 
 export const navigation: NavItem[] = [
-  { label: 'Beranda', href: '/' },
-  { label: 'Profil', href: '/profil' },
+  { label: "Beranda", href: "/" },
+  { label: "Profil", href: "/profil" },
   {
-    label: 'Fasilitas',
-    href: '/fasilitas',
+    label: "Fasilitas",
+    href: "/fasilitas",
     children: [
-      { label: 'Taman Dahlia', href: '/fasilitas/taman-dahlia' },
-      { label: 'Rumah Maggot', href: '/fasilitas/rumah-maggot' },
-      { label: 'Buruan SAE', href: '/fasilitas/buruan-sae' },
-      { label: 'Bata Terawang', href: '/fasilitas/bata-terawang' },
+      { label: "Taman Dahlia", href: "/fasilitas/taman-dahlia" },
+      { label: "Rumah Maggot", href: "/fasilitas/rumah-maggot" },
+      { label: "Buruan SAE", href: "/fasilitas/buruan-sae" },
+      { label: "Bata Terawang", href: "/fasilitas/bata-terawang" },
     ],
   },
-  { label: 'SDGs', href: '/sdgs' },
-  { label: 'Edukasi Sampah', href: '/edukasi' },
-  { label: 'Galeri', href: '/galeri' },
-  { label: 'Kontak', href: '/kontak' },
+  { label: "SDGs", href: "/sdgs" },
+  { label: "Edukasi Sampah", href: "/edukasi" },
+  { label: "Galeri", href: "/galeri" },
 ];
 
 export default navigation;

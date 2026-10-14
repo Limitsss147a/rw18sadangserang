@@ -115,13 +115,15 @@ export default function CommunityGallerySection() {
             </div>
           </div>
 
-          <Link
-            href="/kontak"
+          <a
+            href="https://instagram.com/kartaunit18_"
+            target="_blank"
+            rel="noopener noreferrer"
             className="h-12 px-6 rounded-full bg-[#003e74] text-white text-sm font-semibold inline-flex items-center justify-center gap-2 hover:bg-[#195694] shadow-sm transition-all shrink-0"
           >
-            <span>Hubungi Pengurus RW</span>
+            <span>Hubungi via Instagram @kartaunit18_</span>
             <HelpCircle className="w-4 h-4" />
-          </Link>
+          </a>
         </div>
       </div>
     </section>
