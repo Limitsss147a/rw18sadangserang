@@ -7,7 +7,7 @@ export default function SDGsPreview() {
     2: {
       tag: "Pangan Mandiri",
       detail:
-        "Panen sayur sehat & ikan lele segar Buruan SAE untuk gizi balita & lansia warga.",
+        "Panen sayuran segar seperti sosin, pakcoy, dan kangkung Buruan SAE untuk ketahanan pangan keluarga.",
     },
     11: {
       tag: "RTH Terawat",

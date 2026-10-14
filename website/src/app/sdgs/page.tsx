@@ -47,17 +47,17 @@ export default function SDGsPage() {
       color: "#388E3C",
       sdgs: [2, 11, 12],
       alasan:
-        "Pemanfaatan lahan pekarangan dan lorong untuk budidaya sayuran segar mandiri dan perikanan lele terpal menggunakan nutrisi pupuk kasgot.",
-      dampak: "Sayuran bergizi bebas pestisida untuk keluarga & posyandu balita",
+        "Pemanfaatan pekarangan dan lorong untuk budidaya aneka tanaman sayur seperti sosin, pakcoy, kangkung, dan cabai yang disuburkan pupuk kasgot dan kompos.",
+      dampak: "Pasokan sayuran segar bergizi bebas pestisida untuk keluarga & posyandu warga",
     },
     {
       facility: "Bata Terawang",
       slug: "bata-terawang",
-      color: "#BF360C",
-      sdgs: [11, 12],
+      color: "#795548",
+      sdgs: [11, 12, 13],
       alasan:
-        "Infrastruktur roster berongga yang melancarkan sirkulasi udara alami lorong padat serta menggunakan material lokal tahan cuaca yang efisien.",
-      dampak: "Kenyamanan termal gang warga meningkat, lorong estetik dan bersih",
+        "Pengomposan sampah organik aerobik menggunakan susunan bata berongga untuk sirkulasi udara alami tanpa bau serta menekan pembentukan gas metana.",
+      dampak: "Kompos berkualitas mandiri, volume sampah basah ke TPA berkurang signifikan",
     },
   ];
 

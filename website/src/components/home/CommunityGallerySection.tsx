@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Share2, Users, Mail, HelpCircle } from "lucide-react";
+import { Share2, Users } from "lucide-react";
 
 export default function CommunityGallerySection() {
   const photos = [
@@ -96,34 +96,6 @@ export default function CommunityGallerySection() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Quick Contact & Engagement Banner (Studi Banding) */}
-        <div className="rounded-3xl bg-[#dbe9ff] p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 border border-blue-200">
-          <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-2xl bg-[#003e74] text-white flex items-center justify-center shrink-0 shadow-sm">
-              <Mail className="w-7 h-7" />
-            </div>
-            <div>
-              <h4 className="text-lg sm:text-xl font-bold font-heading text-[#0f355c]">
-                Ingin Belajar Studi Banding ke RW 18?
-              </h4>
-              <p className="text-xs sm:text-sm text-slate-700 mt-1">
-                Kami membuka kunjungan belajar pengelolaan Maggot dan Buruan SAE
-                bagi pengurus RW, sekolah, dan komunitas se-Kota Bandung.
-              </p>
-            </div>
-          </div>
-
-          <a
-            href="https://instagram.com/kartaunit18_"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="h-12 px-6 rounded-full bg-[#003e74] text-white text-sm font-semibold inline-flex items-center justify-center gap-2 hover:bg-[#195694] shadow-sm transition-all shrink-0"
-          >
-            <span>Hubungi via Instagram @kartaunit18_</span>
-            <HelpCircle className="w-4 h-4" />
-          </a>
         </div>
       </div>
     </section>

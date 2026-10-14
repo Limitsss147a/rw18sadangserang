@@ -4,9 +4,9 @@ import { getFacilityBySlug } from "@/data/facilities";
 import FacilityDetailTemplate from "@/components/facility/FacilityDetailTemplate";
 
 export const metadata: Metadata = {
-  title: "Buruan SAE — Ketahanan Pangan Pekarangan Warga RW 18",
+  title: "Buruan SAE — Urban Farming Sayuran Sosin & Pangan Mandiri RW 18",
   description:
-    "Profil lengkap program Buruan SAE RW 18 Kelurahan Sadang Serang. Urban farming sayuran pekarangan dan bioflok perikanan mandiri (SDG 2, 11, 12).",
+    "Profil lengkap program Buruan SAE RW 18 Kelurahan Sadang Serang. Pemanfaatan pekarangan untuk budidaya aneka sayuran segar (sosin, pakcoy, kangkung) secara organik mandiri (SDG 2, 11, 12).",
 };
 
 export default function BuruanSaePage() {

@@ -70,7 +70,7 @@ export default function HeroSection() {
                       4 Fasilitas
                     </div>
                     <div className="text-[11px] sm:text-xs text-slate-500 leading-tight">
-                      Dahlia, Maggot, SAE, Terawang
+                      Taman Dahlia, Rumah Maggot, Buruan SAE, Bata Terawang
                     </div>
                   </div>
                 </div>

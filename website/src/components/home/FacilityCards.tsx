@@ -35,20 +35,20 @@ export default function FacilityCards() {
     "buruan-sae": {
       badge: "Ketahanan Pangan Pekarangan",
       badgeColor: "text-amber-900 bg-white/95",
-      tags: ["Bioflok Lele Sehat", "Panen Sayur Segar"],
+      tags: ["Tanaman Sosin & Sayuran", "Panen Segar Bebas Kimia"],
       btnColor:
         "bg-amber-50 text-amber-900 hover:bg-amber-700 hover:text-white",
       borderAccent: "border-amber-200/60",
       btnLabel: "Lihat Kebun Warga",
     },
     "bata-terawang": {
-      badge: "Infrastruktur Ramah Lingkungan",
+      badge: "Pengomposan Aerobik",
       badgeColor: "text-orange-900 bg-white/95",
-      tags: ["Material Daur Ulang", "Sirkulasi Alami"],
+      tags: ["Kompos Bata Berongga", "Sirkulasi Alami 0 Bau"],
       btnColor:
         "bg-orange-50 text-orange-900 hover:bg-orange-700 hover:text-white",
       borderAccent: "border-orange-200/60",
-      btnLabel: "Lihat Infrastruktur",
+      btnLabel: "Lihat Metode Kompos",
     },
   };
 

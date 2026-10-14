@@ -128,7 +128,7 @@ export default function EdukasiPage() {
             </div>
 
             <div className="mt-6 pt-4 border-t border-emerald-200 text-xs text-emerald-800 font-semibold">
-              💡 Nilai Manfaat: Diurai dalam 24 jam menjadi pakan lele segar &amp; pupuk kasgot
+              💡 Nilai Manfaat: Diurai dalam 24 jam menjadi pupuk kasgot subur untuk tanaman sayur Buruan SAE
             </div>
           </div>
 

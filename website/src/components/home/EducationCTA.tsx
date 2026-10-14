@@ -239,45 +239,32 @@ export default function EducationCTA() {
         {/* Booklet & Media Preview Section with 3D Tilt Cover */}
         <div className="bg-white rounded-3xl p-6 sm:p-10 lg:p-12 shadow-lg border border-slate-200">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Booklet Cover Preview with 3D Tilt & Spine Shadow */}
-            <div className="lg:col-span-5 flex justify-center">
-              <div className="relative w-64 sm:w-72 rounded-2xl overflow-hidden book-shadow transform -rotate-1 hover:rotate-0 transition-transform duration-300 bg-slate-100 border border-white/60">
-                {/* Spine reflection accent */}
-                <div className="absolute top-0 bottom-0 left-0 w-3 bg-gradient-to-r from-black/40 via-white/20 to-transparent z-20 pointer-events-none" />
-                <div className="relative h-88 sm:h-96 w-full bg-gradient-to-br from-[#003e74] via-[#195694] to-[#2e7d32] p-6 text-white flex flex-col justify-between">
-                  <div className="space-y-2">
-                    <div className="inline-block px-2.5 py-1 rounded bg-white/20 text-xs font-bold">
-                      PEDOMAN RESMI
-                    </div>
-                    <h4 className="text-xl sm:text-2xl font-bold font-heading leading-tight">
-                      Buku Saku Pemilahan Sampah RW 18
-                    </h4>
-                    <p className="text-xs text-blue-100">
-                      Sadang Serang, Coblong, Kota Bandung
-                    </p>
-                  </div>
-
-                  <div className="grid grid-cols-3 gap-2 py-4">
-                    <div className="p-2 rounded-lg bg-[#2e7d32] text-center text-[10px] font-bold">
-                      Organik
-                    </div>
-                    <div className="p-2 rounded-lg bg-[#f59e0b] text-[#451a03] text-center text-[10px] font-bold">
-                      Anorganik
-                    </div>
-                    <div className="p-2 rounded-lg bg-[#d32f2f] text-center text-[10px] font-bold">
-                      Residu
-                    </div>
-                  </div>
-
-                  <div className="pt-2 border-t border-white/20 text-[11px] text-white/80 flex items-center justify-between">
-                    <span>KKN UNIKOM 2025</span>
-                    <span>Pemprov Jabar</span>
+            {/* Booklet Cover Preview with Real Asset from public/booklet/1.png */}
+            <div className="lg:col-span-5 flex flex-col items-center">
+              <div className="relative w-full max-w-sm rounded-2xl overflow-hidden shadow-xl border-2 border-slate-200 bg-white group hover:shadow-2xl transition-all duration-300">
+                <div className="relative aspect-[2000/1414] w-full overflow-hidden bg-slate-50">
+                  <Image
+                    src="/booklet/1.png"
+                    alt="Buku Saku Pemilahan Sampah RW 18 Sadang Serang"
+                    fill
+                    className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute bottom-3 inset-x-3 flex items-center justify-between text-white text-xs font-semibold px-2.5 py-1.5 bg-black/50 backdrop-blur-md rounded-xl">
+                    <span className="flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                      Halaman 1 — Panduan
+                    </span>
+                    <span className="text-[11px] text-emerald-200 font-medium">Buku Saku Resmi RW 18</span>
                   </div>
                 </div>
-
-                <div className="absolute bottom-0 inset-x-0 p-2.5 bg-slate-900/85 backdrop-blur-md text-white text-center z-10 text-xs font-semibold">
-                  Edisi Cetak &amp; Digital 2025
-                </div>
+              </div>
+              <div className="mt-3 flex items-center gap-2 text-xs text-slate-500">
+                <span className="font-semibold text-[#003e74]">2 Halaman Lengkap</span>
+                <span>•</span>
+                <span>Flipbook Interaktif &amp; PDF Siap Cetak</span>
               </div>
             </div>
 
@@ -289,14 +276,13 @@ export default function EducationCTA() {
               </div>
 
               <h3 className="text-2xl sm:text-3xl font-bold font-heading text-[#0f355c]">
-                Booklet Digital: Panduan Pemilahan Sampah Terpadu RW 18
+                Buku Saku Digital: Panduan Pemilahan Sampah Terpadu RW 18
               </h3>
 
               <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-                Disusun khusus dengan font besar yang ramah lansia, infografis
-                penuh warna, dan tips praktis mengelola bau sampah dapur. Dapat
-                dibaca langsung di browser atau disimpan dalam format PDF untuk
-                dicetak.
+                Disusun khusus berdasarkan booklet edukasi resmi RW 18 Sadang Serang. 
+                Memuat infografis 3 wadah pemilahan, tips pengelolaan sampah dapur, serta jadwal pengangkutan 
+                lingkungan. Dapat dibaca langsung via flipbook digital atau diunduh gratis dalam format PDF.
               </p>
 
               {/* Quick Feature Checklist */}
@@ -307,18 +293,18 @@ export default function EducationCTA() {
                 </div>
                 <div className="px-3 py-2 rounded-xl bg-[#eef4ff] border border-blue-200 text-xs font-semibold text-[#003e74] flex items-center gap-2">
                   <span>✅</span>
-                  <span>Diagram alur bergambar</span>
+                  <span>Infografis asli RW 18</span>
                 </div>
                 <div className="px-3 py-2 rounded-xl bg-[#eef4ff] border border-blue-200 text-xs font-semibold text-[#003e74] flex items-center gap-2">
                   <span>✅</span>
-                  <span>Video ramah tuna rungu</span>
+                  <span>Flipbook &amp; PDF Resmi</span>
                 </div>
               </div>
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Link
-                  href="/edukasi"
+                  href="/edukasi#booklet"
                   className="h-14 px-8 rounded-full bg-[#003e74] text-white font-semibold text-base inline-flex items-center justify-center gap-2 hover:bg-[#195694] shadow-sm transition-all"
                 >
                   <BookOpen className="w-5 h-5" />
@@ -326,8 +312,8 @@ export default function EducationCTA() {
                 </Link>
 
                 <a
-                  href="/Asset/Booklet/png2pdf.pdf"
-                  download
+                  href="/booklet/png2pdf.pdf"
+                  download="Buku_Saku_Pilah_Sampah_RW18.pdf"
                   className="h-14 px-8 rounded-full bg-[#e4efff] text-slate-900 font-semibold text-base inline-flex items-center justify-center gap-2 hover:bg-[#dbe9ff] transition-colors"
                 >
                   <Download className="w-5 h-5" />

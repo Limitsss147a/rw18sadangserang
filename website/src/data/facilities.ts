@@ -128,7 +128,7 @@ export const facilities: Facility[] = [
       {
         title: 'Produk (Pakan & Kasgot)',
         description:
-          'Residu kasgot dipisahkan dan disaring menjadi pupuk organik siap pakai, sedangkan larva segar/kering didistribusikan untuk pakan lele dan unggas.',
+          'Residu kasgot dipisahkan dan disaring menjadi pupuk organik siap pakai untuk menyuburkan aneka tanaman sayuran Buruan SAE, sedangkan biomasa larva dipanen secara berkelanjutan.',
         icon: 'PackageCheck',
       },
     ],
@@ -138,9 +138,9 @@ export const facilities: Facility[] = [
     id: 'buruan-sae',
     name: 'Buruan SAE',
     slug: 'buruan-sae',
-    tagline: 'Urban Farming Pekarangan Mandiri untuk Ketahanan Pangan Keluarga',
+    tagline: 'Urban Farming Pekarangan Mandiri: Sayuran Sosin, Pakcoy & Tanaman Pangan Warga',
     description:
-      'Buruan SAE (Sehat, Alami, Ekonomis) RW 18 merupakan gerakan pemanfaatan pekarangan rumah, lorong gang, dan atap rumah untuk budidaya sayuran, tanaman obat keluarga (TOGA), dan perikanan air tawar. Mengintegrasikan pupuk kasgot dari Rumah Maggot, program ini mewujudkan ketahanan pangan keluarga mandiri dan bernutrisi tinggi.',
+      'Buruan SAE (Sehat, Alami, Ekonomis) RW 18 merupakan gerakan pemanfaatan pekarangan rumah, lorong gang, dan pot gantung warga untuk budidaya aneka tanaman sayuran segar seperti sosin (caisim), pakcoy, kangkung, cabai, terong, serta tanaman obat keluarga (TOGA). Program ini sepenuhnya fokus pada pertanian nabati pekarangan yang disuburkan oleh pupuk kasgot Rumah Maggot dan kompos Bata Terawang, mewujudkan kemandirian pangan keluarga yang sehat, hijau, dan bebas pestisida kimia sintetis.',
     heroImage: '/images/facilities/buruan-sae-1.jpg',
     images: [
       '/images/facilities/buruan-sae-1.jpg',
@@ -152,7 +152,7 @@ export const facilities: Facility[] = [
         number: 2,
         title: 'Tanpa Kelaparan',
         description:
-          'Meningkatkan akses warga terhadap bahan pangan segar, bernutrisi seimbang, dan bebas pestisida kimia dari pekarangan sendiri.',
+          'Meningkatkan ketahanan pangan mandiri warga melalui pasokan sayuran segar bergizi tinggi (sosin, pakcoy, kangkung) yang dipetik langsung dari pekarangan rumah.',
       },
       {
         number: 11,
@@ -171,25 +171,25 @@ export const facilities: Facility[] = [
       {
         title: 'Pemanfaatan Pekarangan',
         description:
-          'Menata pot, instalasi hidroponik vertikal, dan polybag di teras serta lorong rumah warga yang sebelumnya tidak termanfaatkan.',
+          'Menata pot, rak bertingkat, dan polybag di teras serta lorong gang rumah warga yang sebelumnya sempit menjadi area tanam hijau produktif.',
         icon: 'Home',
       },
       {
         title: 'Penanaman Sayuran',
         description:
-          'Menyemai dan membudidayakan bibit tanaman cepat panen seperti pakcoy, kangkung, selada, cabai, tomat, dan seledri.',
+          'Menyemai dan membudidayakan aneka sayuran daun favorit warga seperti sosin (caisim), pakcoy, kangkung, bayam, cabai rawit, dan tomat.',
         icon: 'Sprout',
       },
       {
         title: 'Pemupukan dengan Kasgot',
         description:
-          'Mengaplikasikan pupuk kasgot organik hasil olahan Rumah Maggot RW 18 untuk menutrisi media tanah secara alami.',
+          'Mengaplikasikan pupuk kasgot organik hasil olahan Rumah Maggot dan kompos Bata Terawang RW 18 untuk menyuburkan tanah secara alami.',
         icon: 'Droplets',
       },
       {
         title: 'Panen Pangan Lokal',
         description:
-          'Memetik hasil panen segar bersama anggota keluarga, menghemat belanja dapur rumah tangga, dan membagikan surplus ke tetangga.',
+          'Memanen sayuran sosin dan sayuran segar bersama keluarga, memenuhi kebutuhan dapur harian, dan membagikan kelebihan panen kepada tetangga.',
         icon: 'Wheat',
       },
     ],

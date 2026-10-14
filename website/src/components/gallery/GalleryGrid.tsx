@@ -72,19 +72,19 @@ const galleryData: GalleryItem[] = [
   },
   {
     id: 8,
-    title: "Bioflok Lele & Sayuran Mandiri",
+    title: "Tanaman Sayuran Sosin Buruan SAE",
     category: "panen",
     categoryLabel: "Urban Farming & Panen",
     image: "/images/facilities/buruan-sae-2.jpg",
-    desc: "Kolam ikan lele air tawar terintegrasi dengan pupuk organik kasgot.",
+    desc: "Budidaya tanaman pekarangan mandiri seperti sosin dan sayuran hijau yang disuburkan pupuk kasgot.",
   },
   {
     id: 9,
-    title: "Detail Tekstur Bata Terawang",
+    title: "Instalasi Kompos Bata Terawang",
     category: "fasilitas",
     categoryLabel: "Fasilitas Lingkungan",
     image: "/images/facilities/bata-terawang-2.jpg",
-    desc: "Material bata ventilasi ramah lingkungan karya warga RW 18 Sadang Serang.",
+    desc: "Susunan batu bata berongga untuk proses dekomposisi aerobik sampah organik tanpa bau.",
   },
   {
     id: 10,
