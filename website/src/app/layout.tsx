@@ -1,27 +1,27 @@
 import type { Metadata } from "next";
-import { Poppins, Inter } from "next/font/google";
+import { Plus_Jakarta_Sans, Inter } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import "./globals.css";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
 const inter = Inter({
-  variable: "--font-inter",
+  variable: "--font-body",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "RW 18 Kelurahan Sadang Serang | Mandiri Sampah & Berkelanjutan",
+  title: "RW 18 Sadang Serang - Lingkungan & Inovasi SDGs",
   description:
-    "Website profil dan pusat edukasi lingkungan RW 18 Kelurahan Sadang Serang, Kecamatan Coblong, Kota Bandung.",
+    "Pusat profil fasilitas ramah lingkungan RW 18 Kelurahan Sadang Serang (Taman Dahlia, Rumah Maggot, Buruan SAE, Bata Terawang) dan pusat edukasi gerakan pilah sampah langsung dari rumah tangga.",
 };
 
 export default function RootLayout({
@@ -32,11 +32,11 @@ export default function RootLayout({
   return (
     <html
       lang="id"
-      className={`${poppins.variable} ${inter.variable} h-full antialiased`}
+      className={`${plusJakartaSans.variable} ${inter.variable} scroll-smooth h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-white text-slate-800">
+      <body className="min-h-full flex flex-col font-body bg-background text-foreground">
         <Navbar />
-        <div className="flex-1">{children}</div>
+        <main className="flex-1 pt-20">{children}</main>
         <Footer />
       </body>
     </html>

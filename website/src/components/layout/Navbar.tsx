@@ -2,9 +2,10 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, ChevronDown } from "lucide-react";
+import { Menu, ChevronDown, User } from "lucide-react";
 import navigation, { NavItem } from "@/data/navigation";
 import MobileMenu from "./MobileMenu";
 
@@ -15,18 +16,16 @@ export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Monitor scroll position for sticky background styling
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 12);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Check initial scroll state
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Dropdown hover handlers with slight debounce for smooth interaction
   const handleMouseEnter = (label: string) => {
     if (dropdownTimeoutRef.current) {
       clearTimeout(dropdownTimeoutRef.current);
@@ -57,154 +56,169 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`sticky top-0 z-40 w-full transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200/80 py-2 sm:py-2.5"
-            : "bg-white border-b border-slate-100 py-3 sm:py-4"
+            ? "bg-white/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.05)] border-b border-slate-200/80"
+            : "bg-[#f8f9ff]/90 backdrop-blur-md border-b border-slate-200/60"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-14 sm:h-16">
-            {/* Logo Area */}
-            <Link
-              href="/"
-              className="flex items-center gap-3 group focus:outline-hidden focus:ring-2 focus:ring-[#195694] rounded-xl px-2 py-1 min-h-[48px]"
-              aria-label="Beranda RW 18 Kelurahan Sadang Serang"
-            >
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#195694] flex items-center justify-center text-white font-bold text-lg shadow-xs group-hover:bg-[#134577] transition-colors shrink-0">
-                18
-              </div>
-              <div className="flex flex-col text-left">
-                <span className="text-xl sm:text-2xl font-bold tracking-tight text-[#195694] group-hover:text-[#134577] transition-colors leading-tight">
-                  RW 18
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+          {/* Logo Area */}
+          <Link
+            href="/"
+            className="flex items-center gap-3 group focus:outline-hidden rounded-xl py-1 min-h-[48px]"
+            aria-label="Beranda RW 18 Kelurahan Sadang Serang"
+          >
+            <div className="w-10 h-10 rounded-xl bg-[#003e74] flex items-center justify-center text-white font-bold text-lg shadow-xs group-hover:bg-[#195694] transition-colors shrink-0">
+              18
+            </div>
+            <div className="flex flex-col text-left">
+              <div className="flex items-center gap-2">
+                <span className="text-lg sm:text-xl font-bold font-heading text-[#003e74] leading-tight">
+                  RW 18 Sadang Serang
                 </span>
-                <span className="text-xs sm:text-sm font-medium tracking-wide text-slate-500 uppercase leading-none">
-                  Sadang Serang
+                <span className="hidden xl:inline-block px-2 py-0.5 rounded-full bg-[#dbe9ff] text-[#003e74] text-xs font-semibold">
+                  KKN UNIKOM
                 </span>
               </div>
-            </Link>
+              <span className="text-xs text-slate-500 hidden sm:block">
+                Kelurahan Sadang Serang, Coblong, Kota Bandung
+              </span>
+            </div>
+          </Link>
 
-            {/* Desktop Navigation */}
-            <nav
-              className="hidden md:flex items-center gap-1 lg:gap-2"
-              aria-label="Navigasi Utama"
-            >
-              {navigation.map((item: NavItem) => {
-                const hasChildren = item.children && item.children.length > 0;
-                const active = isItemActive(item);
-                const isDropdownOpen = activeDropdown === item.label;
+          {/* Desktop Navigation */}
+          <nav
+            className="hidden lg:flex items-center gap-1"
+            aria-label="Navigasi Utama"
+          >
+            {navigation.map((item: NavItem) => {
+              const hasChildren = item.children && item.children.length > 0;
+              const active = isItemActive(item);
+              const isDropdownOpen = activeDropdown === item.label;
 
-                if (!hasChildren) {
-                  return (
+              if (!hasChildren) {
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={`min-h-[44px] px-3.5 py-2 rounded-lg text-sm font-semibold transition-colors flex items-center ${
+                      active
+                        ? "bg-[#e4efff] text-[#003e74]"
+                        : "text-slate-600 hover:text-[#003e74] hover:bg-[#eef4ff]"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              }
+
+              return (
+                <div
+                  key={item.label}
+                  className="relative"
+                  onMouseEnter={() => handleMouseEnter(item.label)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <div className="flex items-center">
                     <Link
-                      key={item.href}
                       href={item.href}
-                      className={`min-h-[48px] px-3.5 lg:px-4 py-2 rounded-xl text-base lg:text-lg font-medium transition-all flex items-center ${
+                      className={`min-h-[44px] pl-3.5 pr-1.5 py-2 rounded-l-lg text-sm font-semibold transition-colors flex items-center ${
                         active
-                          ? "text-[#195694] bg-[#eef5fb] font-semibold"
-                          : "text-slate-700 hover:text-[#195694] hover:bg-slate-50"
+                          ? "bg-[#e4efff] text-[#003e74]"
+                          : "text-slate-600 hover:text-[#003e74] hover:bg-[#eef4ff]"
                       }`}
                     >
                       {item.label}
                     </Link>
-                  );
-                }
 
-                // Item with dropdown (Fasilitas)
-                return (
-                  <div
-                    key={item.label}
-                    className="relative"
-                    onMouseEnter={() => handleMouseEnter(item.label)}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    <div className="flex items-center">
-                      <Link
-                        href={item.href}
-                        className={`min-h-[48px] pl-3.5 lg:pl-4 pr-1.5 py-2 rounded-l-xl text-base lg:text-lg font-medium transition-all flex items-center ${
-                          active
-                            ? "text-[#195694] bg-[#eef5fb] font-semibold"
-                            : "text-slate-700 hover:text-[#195694] hover:bg-slate-50"
-                        }`}
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setActiveDropdown(isDropdownOpen ? null : item.label)
+                      }
+                      aria-expanded={isDropdownOpen}
+                      aria-label={`Buka submenu ${item.label}`}
+                      className={`min-h-[44px] pr-2.5 py-2 rounded-r-lg text-slate-600 hover:text-[#003e74] transition-colors flex items-center justify-center ${
+                        active ? "bg-[#e4efff]" : "hover:bg-[#eef4ff]"
+                      }`}
+                    >
+                      <motion.span
+                        animate={{ rotate: isDropdownOpen ? 180 : 0 }}
+                        transition={{ duration: 0.2 }}
                       >
-                        {item.label}
-                      </Link>
-
-                      <button
-                        type="button"
-                        onClick={() =>
-                          setActiveDropdown(
-                            isDropdownOpen ? null : item.label
-                          )
-                        }
-                        aria-expanded={isDropdownOpen}
-                        aria-label={`Buka submenu ${item.label}`}
-                        className={`min-h-[48px] min-w-[36px] pr-2.5 py-2 rounded-r-xl text-slate-600 hover:text-[#195694] transition-all flex items-center justify-center ${
-                          active ? "bg-[#eef5fb]" : "hover:bg-slate-50"
-                        }`}
-                      >
-                        <motion.span
-                          animate={{ rotate: isDropdownOpen ? 180 : 0 }}
-                          transition={{ duration: 0.2 }}
-                          className="flex items-center justify-center"
-                        >
-                          <ChevronDown className="w-4 h-4" />
-                        </motion.span>
-                      </button>
-                    </div>
-
-                    {/* Animated Dropdown Menu */}
-                    <AnimatePresence>
-                      {isDropdownOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 8, scale: 0.97 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          exit={{ opacity: 0, y: 6, scale: 0.97 }}
-                          transition={{ duration: 0.16, ease: "easeOut" }}
-                          className="absolute top-full left-0 pt-2 w-64 z-50"
-                        >
-                          <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-2 overflow-hidden ring-1 ring-black/5">
-                            <div className="px-3 py-2 text-xs font-semibold uppercase tracking-wider text-slate-400 border-b border-slate-100 mb-1">
-                              Fasilitas Unggulan
-                            </div>
-                            {item.children?.map((child) => {
-                              const childActive = pathname === child.href;
-                              return (
-                                <Link
-                                  key={child.href}
-                                  href={child.href}
-                                  onClick={() => setActiveDropdown(null)}
-                                  className={`flex items-center px-3.5 py-2.5 rounded-xl text-base font-medium transition-colors min-h-[44px] ${
-                                    childActive
-                                      ? "bg-[#195694] text-white font-semibold"
-                                      : "text-slate-700 hover:text-[#195694] hover:bg-[#eef5fb]"
-                                  }`}
-                                >
-                                  {child.label}
-                                </Link>
-                              );
-                            })}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                        <ChevronDown className="w-4 h-4" />
+                      </motion.span>
+                    </button>
                   </div>
-                );
-              })}
-            </nav>
+
+                  {/* Dropdown Menu */}
+                  <AnimatePresence>
+                    {isDropdownOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 6, scale: 0.98 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 4, scale: 0.98 }}
+                        transition={{ duration: 0.15 }}
+                        className="absolute top-full left-0 pt-2 w-60 z-50"
+                      >
+                        <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-2 overflow-hidden ring-1 ring-black/5">
+                          <div className="px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-400 border-b border-slate-100 mb-1">
+                            Fasilitas Unggulan
+                          </div>
+                          {item.children?.map((child) => {
+                            const childActive = pathname === child.href;
+                            return (
+                              <Link
+                                key={child.href}
+                                href={child.href}
+                                onClick={() => setActiveDropdown(null)}
+                                className={`flex items-center px-3 py-2 rounded-xl text-sm font-medium transition-colors ${
+                                  childActive
+                                    ? "bg-[#003e74] text-white font-semibold"
+                                    : "text-slate-700 hover:text-[#003e74] hover:bg-[#eef4ff]"
+                                }`}
+                              >
+                                {child.label}
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </nav>
+
+          {/* Right Action CTA & Avatar */}
+          <div className="flex items-center gap-3">
+            <Link
+              href="/edukasi"
+              className="hidden md:inline-flex items-center justify-center px-5 h-11 rounded-full bg-[#1b6d24] text-white text-sm font-semibold shadow-xs hover:bg-emerald-800 transition-colors"
+            >
+              Edukasi Sampah Terpilah
+            </Link>
+
+            <Link
+              href="/profil"
+              className="w-9 h-9 rounded-full bg-[#003e74] text-white hidden sm:flex items-center justify-center shrink-0 hover:bg-[#195694] transition-colors"
+              title="Profil RW 18"
+            >
+              <User className="w-5 h-5" />
+            </Link>
 
             {/* Mobile Hamburger Button */}
-            <div className="flex items-center md:hidden">
-              <button
-                type="button"
-                onClick={() => setIsMobileMenuOpen(true)}
-                className="min-h-[48px] min-w-[48px] p-2.5 rounded-xl text-slate-700 hover:text-[#195694] hover:bg-[#eef5fb] flex items-center justify-center transition-colors focus:outline-hidden focus:ring-2 focus:ring-[#195694]"
-                aria-label="Buka menu navigasi"
-                aria-expanded={isMobileMenuOpen}
-              >
-                <Menu className="w-7 h-7" />
-              </button>
-            </div>
+            <button
+              type="button"
+              onClick={() => setIsMobileMenuOpen(true)}
+              className="lg:hidden min-h-[44px] min-w-[44px] p-2 rounded-xl text-slate-700 hover:text-[#003e74] hover:bg-[#eef4ff] flex items-center justify-center transition-colors"
+              aria-label="Buka menu navigasi"
+              aria-expanded={isMobileMenuOpen}
+            >
+              <Menu className="w-6 h-6" />
+            </button>
           </div>
         </div>
       </header>

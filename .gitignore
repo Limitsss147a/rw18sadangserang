@@ -27,3 +27,7 @@ next-env.d.ts
 website/next-env.d.ts
 .vercel/
 website/.vercel/
+
+
+# PRD
+.gitignore/

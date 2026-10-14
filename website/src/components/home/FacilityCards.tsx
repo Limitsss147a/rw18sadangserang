@@ -1,133 +1,165 @@
-"use client";
-
-import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import Image from "next/image";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 import { facilities } from "@/data/facilities";
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: [0.22, 1, 0.36, 1] as const,
-    },
-  },
-};
-
 export default function FacilityCards() {
+  const facilityMeta: Record<
+    string,
+    {
+      badge: string;
+      badgeColor: string;
+      tags: string[];
+      btnColor: string;
+      borderAccent: string;
+      btnLabel: string;
+    }
+  > = {
+    "taman-dahlia": {
+      badge: "Ruang Terbuka Hijau & Sosial",
+      badgeColor: "text-emerald-800 bg-white/95",
+      tags: ["Luas RTH: 350 m²", "Dahlia & Rindang"],
+      btnColor:
+        "bg-emerald-50 text-emerald-800 hover:bg-emerald-700 hover:text-white",
+      borderAccent: "border-emerald-200/60",
+      btnLabel: "Lihat Detail Fasilitas",
+    },
+    "rumah-maggot": {
+      badge: "Biokonversi Organik Mandiri",
+      badgeColor: "text-emerald-800 bg-white/95",
+      tags: ["Kapasitas: 150 kg/minggu", "Kasgot 100% Organik"],
+      btnColor: "bg-blue-50 text-[#003e74] hover:bg-[#003e74] hover:text-white",
+      borderAccent: "border-blue-200/60",
+      btnLabel: "Lihat Alur Kerja",
+    },
+    "buruan-sae": {
+      badge: "Ketahanan Pangan Pekarangan",
+      badgeColor: "text-amber-900 bg-white/95",
+      tags: ["Bioflok Lele Sehat", "Panen Sayur Segar"],
+      btnColor:
+        "bg-amber-50 text-amber-900 hover:bg-amber-700 hover:text-white",
+      borderAccent: "border-amber-200/60",
+      btnLabel: "Lihat Kebun Warga",
+    },
+    "bata-terawang": {
+      badge: "Infrastruktur Ramah Lingkungan",
+      badgeColor: "text-orange-900 bg-white/95",
+      tags: ["Material Daur Ulang", "Sirkulasi Alami"],
+      btnColor:
+        "bg-orange-50 text-orange-900 hover:bg-orange-700 hover:text-white",
+      borderAccent: "border-orange-200/60",
+      btnLabel: "Lihat Infrastruktur",
+    },
+  };
+
   return (
-    <section id="fasilitas" className="py-20 md:py-28 bg-white scroll-mt-6">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="w-full bg-[#f8f9ff] py-16 sm:py-24" id="fasilitas">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-12">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-14"
-        >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-[#195694] text-sm font-semibold mb-4 border border-blue-100">
-            <Sparkles className="w-4 h-4 text-[#195694]" aria-hidden="true" />
-            Infrastruktur Berkelanjutan
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div className="max-w-xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100/70 border border-emerald-300 text-[#1b6d24] text-xs font-bold uppercase tracking-wider mb-2">
+              <CheckCircle2 className="w-3.5 h-3.5" />
+              <span>Sertifikasi RW Ramah Lingkungan</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold font-heading text-[#0f355c] mt-1">
+              Fasilitas Unggulan RW 18
+            </h2>
+            <p className="text-base sm:text-lg text-slate-600 mt-2">
+              Ruang terbuka dan fasilitas terpadu yang dikelola bersama oleh
+              warga, Karang Taruna Unit 18, dan tim pendamping KKN UNIKOM.
+            </p>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-slate-900 tracking-tight">
-            Fasilitas Unggulan RW 18
-          </h2>
-          <p className="mt-4 text-lg sm:text-xl text-slate-600 leading-relaxed">
-            Empat pilar fasilitas terpadu yang mewujudkan kelestarian lingkungan,
-            kemandirian pangan, dan pengelolaan sampah sirkular di RW 18 Sadang Serang.
-          </p>
-        </motion.div>
+          <div className="hidden md:flex items-center">
+            <span className="px-4 py-2 rounded-full bg-white border border-slate-200 text-xs font-semibold text-[#003e74] shadow-xs">
+              Coblong Lestari 2025
+            </span>
+          </div>
+        </div>
 
-        {/* 4 Cards Responsive Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
-        >
-          {facilities.map((facility) => (
-            <motion.div
-              key={facility.id}
-              variants={cardVariants}
-              whileHover={{ y: -6, scale: 1.02 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-              className="group relative h-[440px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 bg-slate-900 border border-slate-100 flex flex-col justify-end"
-            >
-              {/* Facility background image */}
-              <Image
-                src={facility.heroImage}
-                alt={`Foto fasilitas ${facility.name} RW 18`}
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                className="object-cover object-center group-hover:scale-108 transition-transform duration-700 ease-out"
-                priority={facility.id === "taman-dahlia"}
-              />
+        {/* Facility Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {facilities.map((fac) => {
+            const meta = facilityMeta[fac.slug] || {
+              badge: "Fasilitas RW 18",
+              badgeColor: "text-slate-800 bg-white/95",
+              tags: ["Berkelanjutan"],
+              btnColor: "bg-slate-100 text-slate-800",
+              borderAccent: "border-slate-200",
+              btnLabel: "Lihat Detail",
+            };
 
-              {/* Dark Gradient Overlay for optimal text readability */}
+            return (
               <div
-                className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/60 to-slate-950/10 transition-opacity duration-300"
-                aria-hidden="true"
-              />
+                key={fac.id}
+                className={`bg-white rounded-3xl overflow-hidden border ${meta.borderAccent} shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col group`}
+              >
+                {/* Photo Top Container */}
+                <div className="relative h-56 w-full overflow-hidden bg-slate-100">
+                  <Image
+                    src={fac.heroImage}
+                    alt={fac.name}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
 
-              {/* Color Indicator Accent Bar */}
-              <div
-                className="absolute top-0 inset-x-0 h-1.5 transition-all duration-300 group-hover:h-2"
-                style={{ backgroundColor: facility.color }}
-                aria-hidden="true"
-              />
-
-              {/* Card Content */}
-              <div className="relative z-10 p-6 flex flex-col justify-end h-full">
-                <div className="mt-auto">
-                  <span
-                    className="inline-block px-2.5 py-1 text-xs font-semibold uppercase tracking-wider rounded-md text-white mb-3 backdrop-blur-md"
-                    style={{ backgroundColor: `${facility.color}cc` }}
+                  {/* Top Badge */}
+                  <div
+                    className={`absolute top-4 left-4 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold shadow-xs ${meta.badgeColor}`}
                   >
-                    Fasilitas
-                  </span>
+                    {meta.badge}
+                  </div>
 
-                  <h3 className="text-2xl font-bold font-heading text-white group-hover:text-blue-100 transition-colors">
-                    {facility.name}
-                  </h3>
+                  {/* Bottom Tags */}
+                  <div className="absolute bottom-3 left-4 right-4 flex flex-wrap items-center gap-1.5 text-white text-[11px] font-semibold">
+                    {meta.tags.map((tag, i) => (
+                      <span
+                        key={i}
+                        className="inline-block bg-black/50 backdrop-blur-sm px-2.5 py-0.5 rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
 
-                  <p className="mt-2 text-slate-200 text-base line-clamp-3 leading-relaxed">
-                    {facility.tagline}
-                  </p>
+                {/* Card Content */}
+                <div className="p-6 flex flex-col flex-grow justify-between gap-4">
+                  <div>
+                    <h3 className="text-xl font-bold font-heading text-[#0f355c]">
+                      {fac.name}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed line-clamp-3">
+                      {fac.description}
+                    </p>
+                  </div>
 
-                  <div className="mt-5 pt-3 border-t border-white/15">
+                  <div className="flex flex-col gap-4 pt-2">
+                    <div className="flex flex-wrap items-center gap-1.5">
+                      {fac.sdgs.map((sdg) => (
+                        <span
+                          key={sdg.number}
+                          className="px-2.5 py-0.5 rounded-full bg-blue-50 text-[#003e74] text-xs font-bold"
+                        >
+                          SDG {sdg.number}
+                        </span>
+                      ))}
+                    </div>
+
                     <Link
-                      href={`/fasilitas/${facility.slug}`}
-                      className="min-h-[48px] inline-flex items-center gap-2 text-white font-semibold text-base group-hover:text-amber-300 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white/50 rounded-lg py-2"
+                      href={`/fasilitas/${fac.slug}`}
+                      className={`w-full h-11 inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm transition-colors ${meta.btnColor}`}
                     >
-                      <span>Selengkapnya</span>
-                      <ArrowRight
-                        className="w-5 h-5 transform group-hover:translate-x-1.5 transition-transform duration-200"
-                        aria-hidden="true"
-                      />
+                      <span>{meta.btnLabel}</span>
+                      <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>
                 </div>
               </div>
-            </motion.div>
-          ))}
-        </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

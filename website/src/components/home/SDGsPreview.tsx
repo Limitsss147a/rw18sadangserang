@@ -1,130 +1,118 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { Globe, ArrowRight } from "lucide-react";
-import { sdgs } from "@/data/sdgs";
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: [0.22, 1, 0.36, 1] as const,
-    },
-  },
-};
+import { CheckCircle2, LineChart } from "lucide-react";
+import { sdgsData } from "@/data/sdgs";
 
 export default function SDGsPreview() {
+  const sdgHighlights: Record<number, { tag: string; detail: string }> = {
+    2: {
+      tag: "Pangan Mandiri",
+      detail:
+        "Panen sayur sehat & ikan lele segar Buruan SAE untuk gizi balita & lansia warga.",
+    },
+    11: {
+      tag: "RTH Terawat",
+      detail:
+        "Kawasan permukiman tertata rapi, asri, dan aman lewat revitalisasi Taman Dahlia & Bata Terawang.",
+    },
+    12: {
+      tag: "Sirkular Ekonomi",
+      detail:
+        "Siklus organik maggot nir-limbah: sisa makanan diproses 100% jadi pakan & kasgot.",
+    },
+    13: {
+      tag: "Reduksi Emisi",
+      detail:
+        "Mereduksi emisi gas metana (CH4) akibat timbunan sampah basah membusuk di TPA.",
+    },
+    15: {
+      tag: "Biodiversitas",
+      detail:
+        "Pelestarian tanaman pekarangan, bunga dahlia, dan perlindungan kesuburan tanah alami.",
+    },
+  };
+
   return (
-    <section className="py-20 md:py-28 bg-white relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
-        >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-800 text-sm font-semibold mb-4 border border-emerald-200">
-            <Globe className="w-4 h-4 text-emerald-600" aria-hidden="true" />
-            Agenda Pembangunan Berkelanjutan
+    <section className="w-full bg-white py-16 sm:py-24" id="sdgs">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-12">
+        {/* Narrative Header */}
+        <div className="max-w-3xl">
+          <div className="flex items-center gap-2">
+            <span className="w-3 h-3 rounded-full bg-[#1b6d24]" />
+            <span className="text-xs font-bold uppercase tracking-wider text-[#1b6d24]">
+              Aksi Lokal, Dampak Global
+            </span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-bold font-heading text-[#0f355c] mt-2">
+            Pemetaan Capaian SDGs Tingkat Rukun Warga
+          </h2>
+          <p className="text-base sm:text-lg text-slate-600 mt-2 leading-relaxed">
+            Setiap kantong sampah yang terpilah di dapur warga RW 18 langsung
+            mengurangi timbulan ke Tempat Pembuangan Akhir (TPA) dan berkontribusi
+            langsung pada 5 indikator target global Tujuan Pembangunan
+            Berkelanjutan (SDGs).
+          </p>
+        </div>
+
+        {/* 5 Bento SDGs Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+          {sdgsData.map((sdg) => {
+            const extra = sdgHighlights[sdg.number] || {
+              tag: "Berkelanjutan",
+              detail: sdg.description,
+            };
+
+            return (
+              <div
+                key={sdg.number}
+                className="bg-[#eef4ff] rounded-2xl p-5 flex flex-col justify-between hover:bg-[#e4efff] transition-colors shadow-xs border border-slate-200/60"
+              >
+                <div>
+                  <div
+                    className="w-12 h-12 rounded-xl text-white flex items-center justify-center font-bold text-xl mb-4 shadow-sm"
+                    style={{ backgroundColor: sdg.color }}
+                  >
+                    {sdg.number}
+                  </div>
+                  <h4 className="text-base sm:text-lg font-bold font-heading text-slate-900 leading-snug">
+                    {sdg.title}
+                  </h4>
+                  <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                    {extra.detail}
+                  </p>
+                </div>
+
+                <div className="pt-4 mt-2 font-semibold text-xs text-[#003e74] flex items-center gap-1.5 border-t border-slate-200/60">
+                  <span>{extra.tag}</span>
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Action Anchor to Detailed SDGs */}
+        <div className="bg-[#e4efff] rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 border border-blue-200 shadow-xs">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-full bg-[#003e74] flex items-center justify-center text-white shrink-0 shadow-sm">
+              <LineChart className="w-6 h-6" />
+            </div>
+            <div>
+              <p className="text-base sm:text-lg font-bold text-slate-900 font-heading">
+                Ingin memeriksa target indikator lengkap RW 18?
+              </p>
+              <p className="text-xs sm:text-sm text-slate-600">
+                Laporan matriks capaian KKN UNIKOM dan Pemerintah Provinsi Jawa Barat.
+              </p>
+            </div>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-slate-900 tracking-tight">
-            Kontribusi Terhadap SDGs
-          </h2>
-
-          <p className="mt-4 text-lg sm:text-xl text-slate-600 leading-relaxed">
-            Inisiatif fasilitas lingkungan RW 18 terintegrasi secara nyata dengan
-            Tujuan Pembangunan Berkelanjutan (Sustainable Development Goals / SDGs)
-            Perserikatan Bangsa-Bangsa untuk menciptakan dampak positif bagi warga.
-          </p>
-        </motion.div>
-
-        {/* SDGs Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-6"
-        >
-          {sdgs.map((sdg) => (
-            <motion.div
-              key={sdg.number}
-              variants={itemVariants}
-              whileHover={{ y: -6, scale: 1.04 }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
-            >
-              <Link
-                href="/sdgs"
-                aria-label={`Pelajari kontribusi RW 18 terhadap SDG ${sdg.number}: ${sdg.title}`}
-                className="group flex flex-col items-center text-center p-5 rounded-2xl bg-slate-50 hover:bg-white border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-xl transition-all duration-300 h-full justify-between focus:outline-none focus:ring-4 focus:ring-blue-200 min-h-[220px]"
-              >
-                {/* Colored Circle with SDG Number */}
-                <div
-                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-full flex flex-col items-center justify-center text-white font-heading font-black shadow-md group-hover:shadow-lg group-hover:scale-105 transition-all duration-300 relative"
-                  style={{ backgroundColor: sdg.color }}
-                >
-                  <span className="text-xs uppercase tracking-wider font-semibold opacity-90 -mb-1">
-                    SDG
-                  </span>
-                  <span className="text-3xl sm:text-4xl font-extrabold leading-none">
-                    {sdg.number}
-                  </span>
-                </div>
-
-                {/* SDG Title */}
-                <div className="mt-4 flex-1 flex flex-col justify-center">
-                  <h3 className="text-sm sm:text-base font-bold text-slate-800 group-hover:text-[#195694] transition-colors leading-snug">
-                    {sdg.title}
-                  </h3>
-                </div>
-
-                {/* Arrow indicator */}
-                <div className="mt-3 flex items-center gap-1 text-xs font-semibold text-slate-500 group-hover:text-[#195694] transition-colors">
-                  <span>Detail</span>
-                  <ArrowRight
-                    className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform"
-                    aria-hidden="true"
-                  />
-                </div>
-              </Link>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Footer Link */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-12 text-center"
-        >
           <Link
             href="/sdgs"
-            className="min-h-[48px] px-8 py-3 rounded-full border-2 border-[#195694] text-[#195694] hover:bg-[#195694] hover:text-white font-semibold text-base inline-flex items-center justify-center gap-2 transition-all duration-200 shadow-sm hover:shadow focus:outline-none focus:ring-4 focus:ring-blue-200"
+            className="inline-flex items-center justify-center px-6 h-12 rounded-full bg-[#003e74] text-white text-sm font-semibold hover:bg-[#195694] transition-colors shrink-0 shadow-sm"
           >
-            <span>Lihat Pemetaan Lengkap SDGs RW 18</span>
-            <ArrowRight className="w-4 h-4" aria-hidden="true" />
+            <span>Buka Laporan Capaian SDGs →</span>
           </Link>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
