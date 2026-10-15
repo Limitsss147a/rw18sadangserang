@@ -14,6 +14,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { facilities } from "@/data/facilities";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Profil RW 18 Sadang Serang — Wilayah & Komunitas Berkelanjutan",
@@ -25,7 +26,8 @@ export default function ProfilPage() {
   return (
     <div className="bg-slate-50 min-h-screen">
       {/* Header Banner */}
-      <section className="bg-gradient-to-br from-[#195694] via-[#14477A] to-[#0E3A6B] text-white py-20 md:py-24 relative overflow-hidden">
+      <ScrollReveal delay={0.1} y={0}>
+        <section className="bg-gradient-to-br from-[#195694] via-[#14477A] to-[#0E3A6B] text-white py-20 md:py-24 relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]"
           aria-hidden="true"
@@ -43,9 +45,11 @@ export default function ProfilPage() {
           </p>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* Ringkasan & Wilayah */}
-      <section className="py-16 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ScrollReveal delay={0.15}>
+        <section className="py-16 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center gap-2 text-[#195694] font-semibold text-sm uppercase tracking-wider">
@@ -138,9 +142,11 @@ export default function ProfilPage() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* Visi dan Misi */}
-      <section className="py-16 bg-white border-y border-slate-200">
+      <ScrollReveal delay={0.2}>
+        <section className="py-16 bg-white border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-sm font-semibold uppercase tracking-wider text-[#195694] bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
@@ -193,9 +199,11 @@ export default function ProfilPage() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* 4 Fasilitas Lingkungan */}
-      <section className="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ScrollReveal delay={0.25}>
+        <section className="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>
             <span className="text-sm font-semibold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100">
@@ -261,9 +269,11 @@ export default function ProfilPage() {
           ))}
         </div>
       </section>
+      </ScrollReveal>
 
       {/* Kolaborasi & Penggerak */}
-      <section className="bg-slate-100 py-16 border-t border-slate-200">
+      <ScrollReveal delay={0.3}>
+        <section className="bg-slate-100 py-16 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-2xl mx-auto">
             <Users className="w-10 h-10 text-[#195694] mx-auto mb-4" />
@@ -291,6 +301,7 @@ export default function ProfilPage() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
     </div>
   );
 }

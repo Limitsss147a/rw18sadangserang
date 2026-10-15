@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { sdgsData, sdgFacilityMapping } from "@/data/sdgs";
 import { facilities } from "@/data/facilities";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Pemetaan Capaian SDGs — RW 18 Kelurahan Sadang Serang",
@@ -64,7 +65,8 @@ export default function SDGsPage() {
   return (
     <div className="bg-[#f8f9ff] min-h-screen">
       {/* Banner Header */}
-      <section className="bg-gradient-to-br from-[#003e74] via-[#14477A] to-[#0E3A6B] text-white py-16 md:py-24 relative overflow-hidden">
+      <ScrollReveal delay={0.1} y={0}>
+        <section className="bg-gradient-to-br from-[#003e74] via-[#14477A] to-[#0E3A6B] text-white py-16 md:py-24 relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]"
           aria-hidden="true"
@@ -114,9 +116,11 @@ export default function SDGsPage() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* Main SDGs Cards Section */}
-      <section className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+      <ScrollReveal delay={0.15}>
+        <section className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
         <div className="text-center max-w-3xl mx-auto mb-14">
           <span className="text-xs font-bold uppercase tracking-wider text-[#003e74] bg-[#eef4ff] px-3.5 py-1.5 rounded-full border border-blue-200">
             Indikator Global
@@ -184,9 +188,11 @@ export default function SDGsPage() {
           })}
         </div>
       </section>
+      </ScrollReveal>
 
       {/* Matrix Table Section */}
-      <section className="bg-white py-16 md:py-20 border-y border-slate-200">
+      <ScrollReveal delay={0.2}>
+        <section className="bg-white py-16 md:py-20 border-y border-slate-200">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-3.5 py-1 rounded-full border border-emerald-200">
@@ -254,9 +260,11 @@ export default function SDGsPage() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* Bottom CTA to Edukasi Sampah */}
-      <section className="py-16 md:py-20 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+      <ScrollReveal delay={0.25}>
+        <section className="py-16 md:py-20 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-gradient-to-r from-[#003e74] via-[#195694] to-[#1b6d24] rounded-3xl p-8 md:p-12 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="max-w-2xl">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 text-xs font-semibold mb-3">
@@ -282,6 +290,7 @@ export default function SDGsPage() {
           </Link>
         </div>
       </section>
+      </ScrollReveal>
     </div>
   );
 }

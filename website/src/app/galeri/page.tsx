@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Camera, Users, Sparkles, MapPin, ExternalLink } from "lucide-react";
 import { Instagram } from "@/components/icons/InstagramIcon";
 import GalleryGrid from "@/components/gallery/GalleryGrid";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Galeri Dokumentasi & Kegiatan Warga — RW 18 Sadang Serang",
@@ -13,7 +14,8 @@ export default function GaleriPage() {
   return (
     <div className="bg-[#f8f9ff] min-h-screen">
       {/* Banner Header */}
-      <section className="bg-gradient-to-br from-[#003e74] via-[#14477A] to-[#0E3A6B] text-white py-16 md:py-20 relative overflow-hidden">
+      <ScrollReveal delay={0.1} y={0}>
+        <section className="bg-gradient-to-br from-[#003e74] via-[#14477A] to-[#0E3A6B] text-white py-16 md:py-20 relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]"
           aria-hidden="true"
@@ -35,14 +37,18 @@ export default function GaleriPage() {
           </p>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* Main Gallery Grid Section */}
-      <section className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+      <ScrollReveal delay={0.15}>
+        <section className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
         <GalleryGrid />
       </section>
+      </ScrollReveal>
 
       {/* Social Media & Study Visit Section */}
-      <section className="bg-white py-16 border-t border-slate-200">
+      <ScrollReveal delay={0.2}>
+        <section className="bg-white py-16 border-t border-slate-200">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Left: Instagram Communities */}
@@ -148,6 +154,7 @@ export default function GaleriPage() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
     </div>
   );
 }

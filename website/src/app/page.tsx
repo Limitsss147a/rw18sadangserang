@@ -5,6 +5,7 @@ import FacilityCards from "@/components/home/FacilityCards";
 import SDGsPreview from "@/components/home/SDGsPreview";
 import EducationCTA from "@/components/home/EducationCTA";
 import CommunityGallerySection from "@/components/home/CommunityGallerySection";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export const metadata = {
   title: "RW 18 Sadang Serang - Lingkungan & Inovasi SDGs",
@@ -16,25 +17,39 @@ export default function HomePage() {
   return (
     <div className="flex flex-col w-full">
       {/* SECTION 1: HERO SECTION & 3D DIORAMA */}
-      <HeroSection />
+      <ScrollReveal delay={0.1} y={0}>
+        <HeroSection />
+      </ScrollReveal>
 
       {/* SECTION 2: SIKLUS SIRKULAR SAMPAH ORGANIK */}
-      <CircularFlowSection />
+      <ScrollReveal delay={0.15}>
+        <CircularFlowSection />
+      </ScrollReveal>
 
       {/* SECTION 3: BANNER DLH KOTA BANDUNG */}
-      <OfficialBannerSection />
+      <ScrollReveal delay={0.2}>
+        <OfficialBannerSection />
+      </ScrollReveal>
 
       {/* SECTION 4: FASILITAS UNGGULAN RW 18 */}
-      <FacilityCards />
+      <ScrollReveal delay={0.25}>
+        <FacilityCards />
+      </ScrollReveal>
 
       {/* SECTION 5: PEMETAAN CAPAIAN SDGS */}
-      <SDGsPreview />
+      <ScrollReveal delay={0.3}>
+        <SDGsPreview />
+      </ScrollReveal>
 
       {/* SECTION 6: PANDUAN 3 WADAH SAMPAH & BOOKLET */}
-      <EducationCTA />
+      <ScrollReveal delay={0.35}>
+        <EducationCTA />
+      </ScrollReveal>
 
       {/* SECTION 7: DOKUMENTASI KEGIATAN & GOTONG ROYONG */}
-      <CommunityGallerySection />
+      <ScrollReveal delay={0.4}>
+        <CommunityGallerySection />
+      </ScrollReveal>
     </div>
   );
 }

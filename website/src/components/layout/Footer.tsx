@@ -26,7 +26,7 @@ export default function Footer() {
 
             <div className="flex items-center gap-2 pt-2">
               <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#eef4ff] text-[#003e74] text-xs font-semibold">
-                KKN UNIKOM 2025
+                KKN UNIKOM 2026
               </span>
               <span className="inline-flex items-center px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold">
                 Coblong Juara

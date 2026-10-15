@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import BookletViewer from "@/components/education/BookletViewer";
 import WasteSortingQuiz from "@/components/education/WasteSortingQuiz";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Pusat Edukasi Pemilahan Sampah — RW 18 Sadang Serang",
@@ -24,7 +25,8 @@ export default function EdukasiPage() {
   return (
     <div className="bg-[#f8f9ff] min-h-screen">
       {/* Header Banner */}
-      <section className="bg-gradient-to-br from-[#1b6d24] via-[#2E7D32] to-[#003e74] text-white py-16 md:py-24 relative overflow-hidden">
+      <ScrollReveal delay={0.1} y={0}>
+        <section className="bg-gradient-to-br from-[#1b6d24] via-[#2E7D32] to-[#003e74] text-white py-16 md:py-24 relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]"
           aria-hidden="true"
@@ -55,9 +57,11 @@ export default function EdukasiPage() {
           </p>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* 3 Bins Detailed Section */}
-      <section className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+      <ScrollReveal delay={0.15}>
+        <section className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
         <div className="text-center max-w-3xl mx-auto mb-14">
           <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 px-3.5 py-1.5 rounded-full border border-emerald-300">
             Standar Pemilahan 3 Wadah
@@ -253,14 +257,18 @@ export default function EdukasiPage() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* Interactive Booklet Viewer Section */}
-      <section className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <ScrollReveal delay={0.2}>
+        <section className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <BookletViewer />
       </section>
+      </ScrollReveal>
 
       {/* Video Edukasi Bertakarir Section */}
-      <section className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <ScrollReveal delay={0.25}>
+        <section className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-md">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
             <div>
@@ -332,11 +340,14 @@ export default function EdukasiPage() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* Interactive Sorting Quiz Section */}
-      <section className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-10 pb-20">
+      <ScrollReveal delay={0.3}>
+        <section className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-10 pb-20">
         <WasteSortingQuiz />
       </section>
+      </ScrollReveal>
     </div>
   );
 }
