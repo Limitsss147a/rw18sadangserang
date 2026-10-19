@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowDown, BookOpen, Building2, RotateCcw, Globe } from "lucide-react";
+import { ArrowDown, BookOpen, Building2, RotateCcw, Trees } from "lucide-react";
 import HeroPhotoSlider from "./HeroPhotoSlider";
 
 export default function HeroSection() {
@@ -80,10 +80,10 @@ export default function HeroSection() {
 
               <div className="flex items-center gap-2.5 px-3 py-1.5 border-l border-slate-200">
                 <div className="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center shrink-0">
-                  <Globe className="w-4 h-4" />
+                  <Trees className="w-4 h-4" />
                 </div>
                 <span className="text-sm sm:text-base font-bold font-heading text-amber-900">
-                  5 Pilar SDGS
+                  Kawasan Hijau
                 </span>
               </div>
             </div>

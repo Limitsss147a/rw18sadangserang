@@ -58,14 +58,6 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/sdgs"
-                  className="hover:text-[#003e74] transition-colors"
-                >
-                  Pemetaan Indikator SDGs Desa/RW
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/galeri"
                   className="hover:text-[#003e74] transition-colors"
                 >

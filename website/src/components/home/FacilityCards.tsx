@@ -136,16 +136,6 @@ export default function FacilityCards() {
                   </div>
 
                   <div className="flex flex-col gap-4 pt-2">
-                    <div className="flex flex-wrap items-center gap-1.5">
-                      {fac.sdgs.map((sdg) => (
-                        <span
-                          key={sdg.number}
-                          className="px-2.5 py-0.5 rounded-full bg-blue-50 text-[#003e74] text-xs font-bold"
-                        >
-                          SDG {sdg.number}
-                        </span>
-                      ))}
-                    </div>
 
                     <Link
                       href={`/fasilitas/${fac.slug}`}

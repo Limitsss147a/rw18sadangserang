@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { Award, ArrowRight } from "lucide-react";
+import { Award } from "lucide-react";
 import { Facility } from "@/data/facilities";
 import { sdgsData } from "@/data/sdgs";
 
@@ -31,14 +30,6 @@ export default function SDGsBadges({ sdgs, facilityName }: SDGsBadgesProps) {
               Berkelanjutan tingkat komunitas rukun warga:
             </p>
           </div>
-
-          <Link
-            href="/sdgs"
-            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#003e74] hover:text-[#195694] group self-start md:self-auto"
-          >
-            <span>Lihat Seluruh SDGs RW 18</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

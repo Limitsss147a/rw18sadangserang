@@ -19,9 +19,8 @@ export const navigation: NavItem[] = [
       { label: "Bata Terawang", href: "/fasilitas/bata-terawang" },
     ],
   },
-  { label: "SDGs & Capaian", href: "/sdgs" },
   { label: "Edukasi Sampah", href: "/edukasi" },
-  { label: "Galeri", href: "/galeri" },
+  { label: "Galeri & Kontak", href: "/galeri" },
 ];
 
 export default navigation;

@@ -19,7 +19,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "RW 18 Sadang Serang - Lingkungan & Inovasi SDGs",
+  title: "RW 18 Sadang Serang - Kawasan Ramah Lingkungan & Inovasi Warga",
   description:
     "Pusat profil fasilitas ramah lingkungan RW 18 Kelurahan Sadang Serang (Taman Dahlia, Rumah Maggot, Buruan SAE, Bata Terawang) dan pusat edukasi gerakan pilah sampah langsung dari rumah tangga.",
 };
