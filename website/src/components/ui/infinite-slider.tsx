@@ -33,6 +33,7 @@ export function InfiniteSlider({
   useEffect(() => {
     let controls: { stop: () => void } | undefined;
     const size = direction === "horizontal" ? width : height;
+    if (size <= 0) return;
     const contentSize = size + gap;
     const from = reverse ? -contentSize / 2 : 0;
     const to = reverse ? 0 : -contentSize / 2;
