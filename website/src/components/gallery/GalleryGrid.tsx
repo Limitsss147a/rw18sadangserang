@@ -46,14 +46,6 @@ export const galleryData: GalleryItem[] = [
     desc: "Susunan batu bata merah berongga tanpa semen yang mengoptimalkan sirkulasi udara alami untuk proses pengomposan aerobik.",
   },
   {
-    id: 4,
-    title: "Pengomposan Sisa Dapur & Sampah Kebun",
-    category: "fasilitas",
-    categoryLabel: "Fasilitas Lingkungan",
-    image: "/images/facilities/bata-terawang-2.jpg",
-    desc: "Pengolahan sampah organik dedaunan dan sisa makanan menjadi pupuk kompos matang kaya hara di dalam komposter Bata Terawang.",
-  },
-  {
     id: 5,
     title: "Kawasan Pekarangan Sayur Buruan SAE",
     category: "fasilitas",
@@ -61,47 +53,31 @@ export const galleryData: GalleryItem[] = [
     image: "/images/facilities/buruan-sae-1.jpg",
     desc: "Pemanfaatan pekarangan perkotaan menjadi sentra budidaya tanaman pangan lokal terpadu dengan pupuk kasgot.",
   },
-  {
-    id: 6,
-    title: "Konservasi Bunga & Tanaman Hias Taman Dahlia",
-    category: "fasilitas",
-    categoryLabel: "Fasilitas Lingkungan",
-    image: "/images/facilities/taman-dahlia-3.jpg",
-    desc: "Penataan aneka ragam bunga dahlia dan tanaman peneduh oleh ibu-ibu kader PKK untuk menjaga keasrian mikroperkotaan.",
-  },
 
   // --- KATEGORI 2: PENGELOLAAN SAMPAH ORGANIK ---
   {
     id: 7,
-    title: "Penarikan Sampah Organik dari Rumah Warga (Tahap 1)",
+    title: "Penarikan Sampah Organik dari Rumah Warga",
     category: "pengelolaan-sampah",
     categoryLabel: "Pengelolaan Sampah",
     image: "/images/gallery/penarikan-sampah-organik-1.jpeg",
-    desc: "Petugas lingkungan RW 18 mengambil sampah organik sisa makanan langsung dari wadah ember dapur keluarga secara rutin.",
+    desc: "Petugas gaslah RW 18 bersama mahasiswa KKN Unikom mengambil sampah organik sisa makanan langsung dari wadah ember dapur keluarga secara rutin.",
   },
   {
     id: 8,
-    title: "Pengangkutan Sampah Dapur Terpilah (Tahap 2)",
+    title: "Pengangkutan Sampah Dapur Terpilah",
     category: "pengelolaan-sampah",
     categoryLabel: "Pengelolaan Sampah",
     image: "/images/gallery/penarikan-sampah-organik-2.jpeg",
-    desc: "Pengumpulan ember pemilahan sampah organik rumah tangga menggunakan gerobak lingkungan untuk diolah di fasilitas RW 18.",
+    desc: "Petugas gaslah RW 18 bersama mahasiswa KKN Unikom mengambil sampah organik sisa makanan langsung dari wadah ember dapur keluarga secara rutin.",
   },
   {
     id: 9,
-    title: "Penyortiran & Distribusi Bahan Maggot & Kompos (Tahap 3)",
+    title: "Penarikan Sampah Organik dari Rumah Warga",
     category: "pengelolaan-sampah",
     categoryLabel: "Pengelolaan Sampah",
     image: "/images/gallery/penarikan-sampah-organik-3.jpeg",
-    desc: "Penimbangan serta pemilahan sampah organik basah untuk asupan pakan larva BSF di Rumah Maggot dan komposter Bata Terawang.",
-  },
-  {
-    id: 10,
-    title: "Sosialisasi Pemilahan Sampah 3 Wadah Door-to-Door",
-    category: "pengelolaan-sampah",
-    categoryLabel: "Pengelolaan Sampah",
-    image: "/images/facilities/taman-dahlia-4.jpg",
-    desc: "Edukasi langsung kepada warga mengenai panduan memilah sampah organik, anorganik, dan residu menggunakan booklet resmi RW 18.",
+    desc: "Petugas gaslah RW 18 bersama mahasiswa KKN Unikom mengambil sampah organik sisa makanan langsung dari wadah ember dapur keluarga secara rutin.",
   },
 
   // --- KATEGORI 3: URBAN FARMING & PANEN ---
@@ -127,41 +103,25 @@ export const galleryData: GalleryItem[] = [
     category: "urban-farming",
     categoryLabel: "Urban Farming & Panen",
     image: "/images/gallery/panen-buruan-sae.jpeg",
-    desc: "Kegembiraan warga saat memanen sayuran sosin dan kangkung segar hasil budidaya organik pekarangan Buruan SAE RW 18.",
-  },
-  {
-    id: 14,
-    title: "Pertumbuhan Subur Tanaman Sosin & Pakcoy",
-    category: "urban-farming",
-    categoryLabel: "Urban Farming & Panen",
-    image: "/images/facilities/buruan-sae-2.jpg",
-    desc: "Sayuran daun hijau tumbuh subur dengan pemupukan organik kasgot (bekas maggot) tanpa bahan kimia sintetis.",
-  },
-  {
-    id: 15,
-    title: "Koleksi Bibit Sayuran Pekarangan Mandiri",
-    category: "urban-farming",
-    categoryLabel: "Urban Farming & Panen",
-    image: "/images/facilities/buruan-sae-3.jpg",
-    desc: "Stok bibit tanaman pangan siap salur untuk ditanam di pekarangan rumah masing-masing warga RW 18.",
+    desc: "Mahasiswa KKN membantu panen sayuran di Buruan Sae.",
   },
 
   // --- KATEGORI 4: AKTIVITAS SOSIAL & WARGA ---
   {
     id: 16,
-    title: "Pelayanan Kesehatan Rutin Posyandu Balita",
+    title: "Pelayanan Kesehatan Rutin Posyandu",
     category: "kegiatan-warga",
     categoryLabel: "Aktivitas Sosial & Warga",
     image: "/images/gallery/posyandu-1.jpeg",
-    desc: "Pemeriksaan kesehatan terpadu, pengukuran tinggi dan penimbangan berat badan balita oleh kader Posyandu RW 18.",
+    desc: "Pemeriksaan kesehatan terpadu, pengukuran tinggi dan penimbangan berat badan balita dan lansia oleh kader Posyandu RW 18.",
   },
   {
     id: 17,
-    title: "Konsultasi Kesehatan & Nutrisi Anak Posyandu",
+    title: "Kegiatan Posyandu RW 18 Bersama Mahasiswa KKN Unikom",
     category: "kegiatan-warga",
     categoryLabel: "Aktivitas Sosial & Warga",
     image: "/images/gallery/posyandu-2.jpeg",
-    desc: "Layanan penyuluhan gizi seimbang, pemberian vitamin, dan imunisasi rutin demi tumbuh kembang generasi sehat RW 18.",
+    desc: "Mahasiswa KKN membantu kegiatan Posyandu di RW 18.",
   },
   {
     id: 18,
@@ -170,23 +130,7 @@ export const galleryData: GalleryItem[] = [
     categoryLabel: "Aktivitas Sosial & Warga",
     image: "/images/gallery/pembagian-mbg.jpeg",
     desc: "Distribusi paket makanan bergizi seimbang untuk mendukung pemenuhan nutrisi dan kesehatan anak-anak di RW 18.",
-  },
-  {
-    id: 19,
-    title: "Kerja Bakti Bersih Lingkungan & Selokan",
-    category: "kegiatan-warga",
-    categoryLabel: "Aktivitas Sosial & Warga",
-    image: "/images/facilities/taman-dahlia-2.jpg",
-    desc: "Semangat gotong royong warga RW 18 membersihkan saluran air, merapikan tanaman, dan menjaga sanitasi kawasan.",
-  },
-  {
-    id: 20,
-    title: "Rembuk Warga & Dialog di Gazebo Taman Dahlia",
-    category: "kegiatan-warga",
-    categoryLabel: "Aktivitas Sosial & Warga",
-    image: "/images/facilities/taman-dahlia-5.jpg",
-    desc: "Forum musyawarah pengurus RW, RT, dan pemuda Karang Taruna di gazebo terbuka untuk merumuskan aksi peduli lingkungan.",
-  },
+  }
 ];
 
 export default function GalleryGrid() {
