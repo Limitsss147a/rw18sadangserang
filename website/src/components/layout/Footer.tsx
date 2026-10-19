@@ -121,13 +121,6 @@ export default function Footer() {
               Mulai pilah dari dapur rumah kita untuk Sadang Serang yang bersih
               dan lestari.
             </p>
-            <a
-              href="/Asset/Booklet/png2pdf.pdf"
-              download
-              className="inline-flex items-center justify-center px-4 h-11 rounded-full bg-[#1b6d24] text-white text-xs font-semibold hover:bg-emerald-800 transition-colors shadow-xs"
-            >
-              Unduh Panduan Sampah
-            </a>
           </div>
         </div>
 
