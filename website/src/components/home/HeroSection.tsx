@@ -14,7 +14,7 @@ export default function HeroSection() {
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-16 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Left Column: Copy & CTAs Matching Screenshot */}
-          <div className="lg:col-span-7 flex flex-col gap-6">
+          <div className="lg:col-span-6 xl:col-span-7 flex flex-col gap-6">
             {/* Pill Tag */}
             <div className="inline-flex items-center gap-2 self-start px-3.5 py-1.5 rounded-full bg-white border border-blue-200/80 shadow-xs text-[#003e74] text-xs sm:text-sm font-semibold">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-600" />
@@ -89,8 +89,8 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right Column: Animated Photo Slider */}
-          <div className="lg:col-span-5 relative">
+          {/* Right Column: Animated Infinite Photo Slider */}
+          <div className="lg:col-span-6 xl:col-span-5 relative">
             <HeroPhotoSlider />
           </div>
         </div>
