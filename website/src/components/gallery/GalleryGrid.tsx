@@ -1,106 +1,191 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
-import { Camera, X, ChevronLeft, ChevronRight, ZoomIn, Tag } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 
-interface GalleryItem {
+export type GalleryCategory =
+  | "fasilitas"
+  | "pengelolaan-sampah"
+  | "urban-farming"
+  | "kegiatan-warga";
+
+export interface GalleryItem {
   id: number;
   title: string;
-  category: "fasilitas" | "gotong-royong" | "panen" | "edukasi";
+  category: GalleryCategory;
   categoryLabel: string;
   image: string;
   desc: string;
 }
 
-const galleryData: GalleryItem[] = [
+export const galleryData: GalleryItem[] = [
+  // --- KATEGORI 1: FASILITAS LINGKUNGAN ---
   {
     id: 1,
-    title: "Taman Dahlia yang Asri & Rindang",
+    title: "Lanskap Hijau RTH Taman Dahlia",
     category: "fasilitas",
     categoryLabel: "Fasilitas Lingkungan",
     image: "/images/facilities/taman-dahlia-1.jpg",
-    desc: "Ruang terbuka hijau publik RW 18 untuk interaksi sosial warga lintas generasi.",
+    desc: "Pusat ruang terbuka hijau publik terpadu di kawasan RW 18 Sadang Serang untuk sarana rekreasi dan edukasi lingkungan warga.",
   },
   {
     id: 2,
-    title: "Kerja Bakti Minggu Bersih",
-    category: "gotong-royong",
-    categoryLabel: "Gotong Royong",
-    image: "/images/facilities/taman-dahlia-2.jpg",
-    desc: "Warga RW 18 gotong royong membersihkan selokan lingkungan dan menata tanaman.",
-  },
-  {
-    id: 3,
-    title: "Kebun Pekarangan Buruan SAE",
-    category: "panen",
-    categoryLabel: "Urban Farming & Panen",
-    image: "/images/facilities/buruan-sae-1.jpg",
-    desc: "Budidaya tanaman kangkung dan sayuran pekarangan menggunakan pupuk kasgot maggot.",
-  },
-  {
-    id: 4,
     title: "Instalasi Biokonversi Rumah Maggot BSF",
     category: "fasilitas",
     categoryLabel: "Fasilitas Lingkungan",
     image: "/images/facilities/rumah-maggot-1.jpg",
-    desc: "Rak biopon pengolahan sampah organik dapur oleh larva BSF tanpa bau busuk.",
+    desc: "Unit biokonversi larva Black Soldier Fly (BSF) untuk mereduksi sampah makanan basah rumah tangga secara higienis tanpa bau.",
   },
   {
-    id: 5,
-    title: "Inovasi Dinding Roster Bata Terawang",
+    id: 3,
+    title: "Sarana Komposter Aerobik Bata Terawang",
     category: "fasilitas",
     categoryLabel: "Fasilitas Lingkungan",
     image: "/images/facilities/bata-terawang-1.jpg",
-    desc: "Dinding roster pembatas gang yang memperlancar sirkulasi udara alami kawasan.",
+    desc: "Susunan batu bata merah berongga tanpa semen yang mengoptimalkan sirkulasi udara alami untuk proses pengomposan aerobik.",
   },
   {
-    id: 6,
-    title: "Sosialisasi Door-to-Door Pemilahan Sampah",
-    category: "edukasi",
-    categoryLabel: "Edukasi & Sosialisasi",
-    image: "/images/facilities/taman-dahlia-4.jpg",
-    desc: "Mahasiswa KKN UNIKOM bersama Karang Taruna mengedukasi warga lansia cara memilah sampah.",
-  },
-  {
-    id: 7,
-    title: "Penataan Sudut Hijau Taman Dahlia",
-    category: "fasilitas",
-    categoryLabel: "Fasilitas Lingkungan",
-    image: "/images/facilities/taman-dahlia-3.jpg",
-    desc: "Penanaman aneka varietas bunga dahlia dan tanaman hias lokal oleh ibu-ibu kader PKK.",
-  },
-  {
-    id: 8,
-    title: "Tanaman Sayuran Sosin Buruan SAE",
-    category: "panen",
-    categoryLabel: "Urban Farming & Panen",
-    image: "/images/facilities/buruan-sae-2.jpg",
-    desc: "Budidaya tanaman pekarangan mandiri seperti sosin dan sayuran hijau yang disuburkan pupuk kasgot.",
-  },
-  {
-    id: 9,
-    title: "Instalasi Kompos Bata Terawang",
+    id: 4,
+    title: "Pengomposan Sisa Dapur & Sampah Kebun",
     category: "fasilitas",
     categoryLabel: "Fasilitas Lingkungan",
     image: "/images/facilities/bata-terawang-2.jpg",
-    desc: "Susunan batu bata berongga untuk proses dekomposisi aerobik sampah organik tanpa bau.",
+    desc: "Pengolahan sampah organik dedaunan dan sisa makanan menjadi pupuk kompos matang kaya hara di dalam komposter Bata Terawang.",
+  },
+  {
+    id: 5,
+    title: "Kawasan Pekarangan Sayur Buruan SAE",
+    category: "fasilitas",
+    categoryLabel: "Fasilitas Lingkungan",
+    image: "/images/facilities/buruan-sae-1.jpg",
+    desc: "Pemanfaatan pekarangan perkotaan menjadi sentra budidaya tanaman pangan lokal terpadu dengan pupuk kasgot.",
+  },
+  {
+    id: 6,
+    title: "Konservasi Bunga & Tanaman Hias Taman Dahlia",
+    category: "fasilitas",
+    categoryLabel: "Fasilitas Lingkungan",
+    image: "/images/facilities/taman-dahlia-3.jpg",
+    desc: "Penataan aneka ragam bunga dahlia dan tanaman peneduh oleh ibu-ibu kader PKK untuk menjaga keasrian mikroperkotaan.",
+  },
+
+  // --- KATEGORI 2: PENGELOLAAN SAMPAH ORGANIK ---
+  {
+    id: 7,
+    title: "Penarikan Sampah Organik dari Rumah Warga (Tahap 1)",
+    category: "pengelolaan-sampah",
+    categoryLabel: "Pengelolaan Sampah",
+    image: "/images/gallery/penarikan-sampah-organik-1.jpeg",
+    desc: "Petugas lingkungan RW 18 mengambil sampah organik sisa makanan langsung dari wadah ember dapur keluarga secara rutin.",
+  },
+  {
+    id: 8,
+    title: "Pengangkutan Sampah Dapur Terpilah (Tahap 2)",
+    category: "pengelolaan-sampah",
+    categoryLabel: "Pengelolaan Sampah",
+    image: "/images/gallery/penarikan-sampah-organik-2.jpeg",
+    desc: "Pengumpulan ember pemilahan sampah organik rumah tangga menggunakan gerobak lingkungan untuk diolah di fasilitas RW 18.",
+  },
+  {
+    id: 9,
+    title: "Penyortiran & Distribusi Bahan Maggot & Kompos (Tahap 3)",
+    category: "pengelolaan-sampah",
+    categoryLabel: "Pengelolaan Sampah",
+    image: "/images/gallery/penarikan-sampah-organik-3.jpeg",
+    desc: "Penimbangan serta pemilahan sampah organik basah untuk asupan pakan larva BSF di Rumah Maggot dan komposter Bata Terawang.",
   },
   {
     id: 10,
-    title: "Bibit Sayuran Segar Buruan SAE",
-    category: "panen",
-    categoryLabel: "Urban Farming & Panen",
-    image: "/images/facilities/buruan-sae-3.jpg",
-    desc: "Penyemaian bibit tanaman pangan pekarangan untuk ketahanan gizi keluarga.",
+    title: "Sosialisasi Pemilahan Sampah 3 Wadah Door-to-Door",
+    category: "pengelolaan-sampah",
+    categoryLabel: "Pengelolaan Sampah",
+    image: "/images/facilities/taman-dahlia-4.jpg",
+    desc: "Edukasi langsung kepada warga mengenai panduan memilah sampah organik, anorganik, dan residu menggunakan booklet resmi RW 18.",
   },
+
+  // --- KATEGORI 3: URBAN FARMING & PANEN ---
   {
     id: 11,
-    title: "Aktivitas Rembuk Warga di Gazebo",
-    category: "gotong-royong",
-    categoryLabel: "Gotong Royong",
+    title: "Penyemaian Bibit Sayuran Buruan SAE",
+    category: "urban-farming",
+    categoryLabel: "Urban Farming & Panen",
+    image: "/images/gallery/penanaman-bibit-buruan-sae-1.jpeg",
+    desc: "Persiapan media tanam subur berbasis kompos lokal dan penaburan benih sayuran hijau di lahan Buruan SAE.",
+  },
+  {
+    id: 12,
+    title: "Penanaman Bibit Bersama di Bedengan Sayur",
+    category: "urban-farming",
+    categoryLabel: "Urban Farming & Panen",
+    image: "/images/gallery/penanaman-bibit-buruan-sae-2.jpeg",
+    desc: "Aksi gotong royong warga dan mahasiswa KKN menanam bibit sayuran di bedengan tanah terawat untuk ketahanan pangan.",
+  },
+  {
+    id: 13,
+    title: "Panen Sayuran Segar Buruan SAE",
+    category: "urban-farming",
+    categoryLabel: "Urban Farming & Panen",
+    image: "/images/gallery/panen-buruan-sae.jpeg",
+    desc: "Kegembiraan warga saat memanen sayuran sosin dan kangkung segar hasil budidaya organik pekarangan Buruan SAE RW 18.",
+  },
+  {
+    id: 14,
+    title: "Pertumbuhan Subur Tanaman Sosin & Pakcoy",
+    category: "urban-farming",
+    categoryLabel: "Urban Farming & Panen",
+    image: "/images/facilities/buruan-sae-2.jpg",
+    desc: "Sayuran daun hijau tumbuh subur dengan pemupukan organik kasgot (bekas maggot) tanpa bahan kimia sintetis.",
+  },
+  {
+    id: 15,
+    title: "Koleksi Bibit Sayuran Pekarangan Mandiri",
+    category: "urban-farming",
+    categoryLabel: "Urban Farming & Panen",
+    image: "/images/facilities/buruan-sae-3.jpg",
+    desc: "Stok bibit tanaman pangan siap salur untuk ditanam di pekarangan rumah masing-masing warga RW 18.",
+  },
+
+  // --- KATEGORI 4: AKTIVITAS SOSIAL & WARGA ---
+  {
+    id: 16,
+    title: "Pelayanan Kesehatan Rutin Posyandu Balita",
+    category: "kegiatan-warga",
+    categoryLabel: "Aktivitas Sosial & Warga",
+    image: "/images/gallery/posyandu-1.jpeg",
+    desc: "Pemeriksaan kesehatan terpadu, pengukuran tinggi dan penimbangan berat badan balita oleh kader Posyandu RW 18.",
+  },
+  {
+    id: 17,
+    title: "Konsultasi Kesehatan & Nutrisi Anak Posyandu",
+    category: "kegiatan-warga",
+    categoryLabel: "Aktivitas Sosial & Warga",
+    image: "/images/gallery/posyandu-2.jpeg",
+    desc: "Layanan penyuluhan gizi seimbang, pemberian vitamin, dan imunisasi rutin demi tumbuh kembang generasi sehat RW 18.",
+  },
+  {
+    id: 18,
+    title: "Program Pembagian Makanan Bergizi Gratis (MBG)",
+    category: "kegiatan-warga",
+    categoryLabel: "Aktivitas Sosial & Warga",
+    image: "/images/gallery/pembagian-mbg.jpeg",
+    desc: "Distribusi paket makanan bergizi seimbang untuk mendukung pemenuhan nutrisi dan kesehatan anak-anak di RW 18.",
+  },
+  {
+    id: 19,
+    title: "Kerja Bakti Bersih Lingkungan & Selokan",
+    category: "kegiatan-warga",
+    categoryLabel: "Aktivitas Sosial & Warga",
+    image: "/images/facilities/taman-dahlia-2.jpg",
+    desc: "Semangat gotong royong warga RW 18 membersihkan saluran air, merapikan tanaman, dan menjaga sanitasi kawasan.",
+  },
+  {
+    id: 20,
+    title: "Rembuk Warga & Dialog di Gazebo Taman Dahlia",
+    category: "kegiatan-warga",
+    categoryLabel: "Aktivitas Sosial & Warga",
     image: "/images/facilities/taman-dahlia-5.jpg",
-    desc: "Musyawarah pengurus RT/RW bersama pemuda Karang Taruna di area taman.",
+    desc: "Forum musyawarah pengurus RW, RT, dan pemuda Karang Taruna di gazebo terbuka untuk merumuskan aksi peduli lingkungan.",
   },
 ];
 
@@ -108,18 +193,44 @@ export default function GalleryGrid() {
   const [filter, setFilter] = useState<string>("semua");
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
-  const categories = [
-    { id: "semua", label: "Semua Dokumentasi" },
-    { id: "fasilitas", label: "Fasilitas Lingkungan" },
-    { id: "gotong-royong", label: "Gotong Royong" },
-    { id: "panen", label: "Urban Farming & Panen" },
-    { id: "edukasi", label: "Edukasi & Sosialisasi" },
-  ];
+  const categories = useMemo(
+    () => [
+      {
+        id: "semua",
+        label: "Semua Foto",
+        count: galleryData.length,
+      },
+      {
+        id: "fasilitas",
+        label: "Fasilitas Lingkungan",
+        count: galleryData.filter((i) => i.category === "fasilitas").length,
+      },
+      {
+        id: "pengelolaan-sampah",
+        label: "Pengelolaan Sampah",
+        count: galleryData.filter((i) => i.category === "pengelolaan-sampah").length,
+      },
+      {
+        id: "urban-farming",
+        label: "Urban Farming & Panen",
+        count: galleryData.filter((i) => i.category === "urban-farming").length,
+      },
+      {
+        id: "kegiatan-warga",
+        label: "Aktivitas Sosial & Warga",
+        count: galleryData.filter((i) => i.category === "kegiatan-warga").length,
+      },
+    ],
+    []
+  );
 
-  const filteredItems =
-    filter === "semua"
-      ? galleryData
-      : galleryData.filter((item) => item.category === filter);
+  const filteredItems = useMemo(
+    () =>
+      filter === "semua"
+        ? galleryData
+        : galleryData.filter((item) => item.category === filter),
+    [filter]
+  );
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -146,23 +257,36 @@ export default function GalleryGrid() {
   return (
     <div>
       {/* Category Filter Pills */}
-      <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
-        {categories.map((cat) => (
-          <button
-            key={cat.id}
-            onClick={() => {
-              setFilter(cat.id);
-              setSelectedIndex(null);
-            }}
-            className={`px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all ${
-              filter === cat.id
-                ? "bg-[#003e74] text-white shadow-md scale-102"
-                : "bg-white text-slate-700 border border-slate-200 hover:bg-slate-100"
-            }`}
-          >
-            {cat.label}
-          </button>
-        ))}
+      <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 mb-10">
+        {categories.map((cat) => {
+          const isActive = filter === cat.id;
+          return (
+            <button
+              key={cat.id}
+              onClick={() => {
+                setFilter(cat.id);
+                setSelectedIndex(null);
+              }}
+              type="button"
+              className={`px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all inline-flex items-center gap-2 cursor-pointer ${
+                isActive
+                  ? "bg-[#003e74] text-white shadow-md scale-102"
+                  : "bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 hover:text-slate-900"
+              }`}
+            >
+              <span>{cat.label}</span>
+              <span
+                className={`text-[11px] px-2 py-0.5 rounded-full font-bold ${
+                  isActive
+                    ? "bg-white/20 text-white"
+                    : "bg-slate-100 text-slate-500"
+                }`}
+              >
+                {cat.count}
+              </span>
+            </button>
+          );
+        })}
       </div>
 
       {/* Gallery Photos Grid */}
@@ -180,7 +304,7 @@ export default function GalleryGrid() {
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               className="object-cover group-hover:scale-105 transition-transform duration-500"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/35 to-transparent" />
 
             <div className="absolute top-4 left-4 z-10">
               <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-md text-[#003e74] text-xs font-bold shadow-xs">
@@ -195,10 +319,10 @@ export default function GalleryGrid() {
             </div>
 
             <div className="relative z-10 text-white">
-              <h3 className="text-lg font-bold font-heading leading-snug">
+              <h3 className="text-base sm:text-lg font-bold font-heading leading-snug line-clamp-1">
                 {item.title}
               </h3>
-              <p className="text-xs text-slate-200 mt-1 opacity-90 line-clamp-2">
+              <p className="text-xs text-slate-200 mt-1 opacity-90 line-clamp-2 leading-relaxed">
                 {item.desc}
               </p>
             </div>
@@ -211,15 +335,20 @@ export default function GalleryGrid() {
         <div
           className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4 sm:p-8"
           onClick={() => setSelectedIndex(null)}
+          role="dialog"
+          aria-modal="true"
         >
+          {/* Close button */}
           <button
             onClick={() => setSelectedIndex(null)}
-            className="absolute top-5 right-5 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors z-50"
-            aria-label="Tutup"
+            type="button"
+            className="absolute top-5 right-5 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors z-50 cursor-pointer"
+            aria-label="Tutup foto"
           >
             <X className="w-6 h-6" />
           </button>
 
+          {/* Navigation arrows */}
           {filteredItems.length > 1 && (
             <>
               <button
@@ -229,7 +358,8 @@ export default function GalleryGrid() {
                     (prev) => (prev! - 1 + filteredItems.length) % filteredItems.length
                   );
                 }}
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors z-50"
+                type="button"
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors z-50 cursor-pointer"
                 aria-label="Foto sebelumnya"
               >
                 <ChevronLeft className="w-6 h-6" />
@@ -240,7 +370,8 @@ export default function GalleryGrid() {
                   e.stopPropagation();
                   setSelectedIndex((prev) => (prev! + 1) % filteredItems.length);
                 }}
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors z-50"
+                type="button"
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors z-50 cursor-pointer"
                 aria-label="Foto selanjutnya"
               >
                 <ChevronRight className="w-6 h-6" />
@@ -248,6 +379,7 @@ export default function GalleryGrid() {
             </>
           )}
 
+          {/* Lightbox Image Container */}
           <div
             className="relative max-w-5xl max-h-[85vh] w-full h-full flex flex-col items-center justify-center"
             onClick={(e) => e.stopPropagation()}
@@ -262,11 +394,15 @@ export default function GalleryGrid() {
               />
             </div>
 
-            <div className="absolute bottom-4 left-4 right-4 sm:left-auto sm:right-auto sm:px-6 py-2.5 rounded-2xl bg-black/75 backdrop-blur-md text-white text-center z-10">
-              <p className="text-sm font-bold font-heading">
+            {/* Caption bar */}
+            <div className="absolute bottom-4 left-4 right-4 sm:left-auto sm:right-auto sm:max-w-2xl px-6 py-3 rounded-2xl bg-black/80 backdrop-blur-md text-white text-center z-10 border border-white/10">
+              <div className="inline-block px-2.5 py-0.5 rounded-full bg-emerald-700/80 text-[10px] uppercase font-bold tracking-wider mb-1">
+                {filteredItems[selectedIndex].categoryLabel}
+              </div>
+              <p className="text-sm sm:text-base font-bold font-heading">
                 {filteredItems[selectedIndex].title}
               </p>
-              <p className="text-xs text-slate-300 mt-0.5">
+              <p className="text-xs text-slate-300 mt-1 leading-relaxed">
                 {filteredItems[selectedIndex].desc} ({selectedIndex + 1} dari{" "}
                 {filteredItems.length})
               </p>

@@ -1,35 +1,35 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Share2, Users } from "lucide-react";
+import { ArrowRight, Images } from "lucide-react";
 
 export default function CommunityGallerySection() {
   const photos = [
     {
-      title: "Kerja Bakti Warga Rutin",
-      desc: "Pembersihan saluran air dan penataan lingkungan kawasan",
-      tag: "Minggu Bersih",
+      title: "Penarikan Sampah Organik",
+      desc: "Pengambilan rutin sampah dapur dari rumah warga RW 18 untuk komposter & maggot",
+      tag: "Pengelolaan Sampah",
       tagColor: "text-[#003e74]",
-      image: "/images/facilities/taman-dahlia-2.jpg",
+      image: "/images/gallery/penarikan-sampah-organik-1.jpeg",
     },
     {
-      title: "Panen Raya Buruan SAE",
-      desc: "Distribusi hasil sayur sehat untuk konsumsi posyandu & warga",
-      tag: "Panen Posyandu",
+      title: "Panen Sayuran Buruan SAE",
+      desc: "Hasil panen sayur sosin & kangkung segar pekarangan RW 18 dengan pupuk kasgot",
+      tag: "Urban Farming",
       tagColor: "text-emerald-700",
-      image: "/images/facilities/buruan-sae-1.jpg",
+      image: "/images/gallery/panen-buruan-sae.jpeg",
     },
     {
-      title: "Sosialisasi Dari Pintu ke Pintu",
-      desc: "Edukasi pemilahan sampah langsung ke setiap rumah warga",
-      tag: "KKN Menyapa",
+      title: "Pelayanan Posyandu Balita",
+      desc: "Pemeriksaan tumbuh kembang anak & balita secara rutin oleh kader RW 18",
+      tag: "Kegiatan Warga",
       tagColor: "text-amber-800",
-      image: "/images/facilities/taman-dahlia-4.jpg",
+      image: "/images/gallery/posyandu-1.jpeg",
     },
   ];
 
   return (
     <section className="w-full bg-white py-16 sm:py-24" id="galeri">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-12">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-10">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
@@ -39,31 +39,21 @@ export default function CommunityGallerySection() {
             <h2 className="text-3xl sm:text-4xl font-bold font-heading text-[#0f355c] mt-2">
               Dokumentasi Kegiatan &amp; Gotong Royong
             </h2>
-            <p className="text-base sm:text-lg text-slate-600 mt-2">
-              Sinergi mahasiswa KKN UNIKOM, Karang Taruna Unit 18, dan warga RW
-              18 Kelurahan Sadang Serang.
+            <p className="text-base sm:text-lg text-slate-600 mt-2 max-w-2xl">
+              Potret kolaborasi warga RW 18, Karang Taruna Unit 18, dan tim KKN
+              UNIKOM dalam mengelola lingkungan dan menjaga kebersamaan.
             </p>
           </div>
 
-          <div className="flex items-center gap-3">
-            <a
-              href="https://instagram.com/kartaunit18_"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="h-11 px-4 rounded-full bg-[#eef4ff] text-[#003e74] text-xs sm:text-sm font-semibold inline-flex items-center gap-2 hover:bg-[#e4efff] transition-colors"
+          <div className="flex items-center gap-3 shrink-0">
+            <Link
+              href="/galeri"
+              className="h-11 px-5 rounded-full bg-[#003e74] text-white text-xs sm:text-sm font-semibold inline-flex items-center gap-2 hover:bg-[#195694] transition-colors shadow-xs"
             >
-              <Share2 className="w-4 h-4" />
-              <span>@kartaunit18_</span>
-            </a>
-            <a
-              href="https://instagram.com/kkn3_sadangserang"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="h-11 px-4 rounded-full bg-[#eef4ff] text-emerald-800 text-xs sm:text-sm font-semibold inline-flex items-center gap-2 hover:bg-[#e4efff] transition-colors"
-            >
-              <Users className="w-4 h-4" />
-              <span>@kkn3_sadangserang</span>
-            </a>
+              <Images className="w-4 h-4" />
+              <span>Lihat Seluruh Galeri</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
 
@@ -90,7 +80,7 @@ export default function CommunityGallerySection() {
 
               <div className="absolute bottom-5 left-5 right-5 text-white">
                 <p className="text-lg font-bold font-heading">{item.title}</p>
-                <p className="text-xs text-slate-200 mt-1 opacity-90">
+                <p className="text-xs text-slate-200 mt-1 opacity-90 line-clamp-2">
                   {item.desc}
                 </p>
               </div>

@@ -20,7 +20,7 @@ export const navigation: NavItem[] = [
     ],
   },
   { label: "Edukasi Sampah", href: "/edukasi" },
-  { label: "Galeri & Kontak", href: "/galeri" },
+  { label: "Galeri", href: "/galeri" },
 ];
 
 export default navigation;
