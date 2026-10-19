@@ -45,7 +45,7 @@ export default function Footer() {
                   href="#fasilitas"
                   className="hover:text-[#003e74] transition-colors"
                 >
-                  Fasilitas Unggulan (Dahlia, Maggot, SAE, Terawang)
+                  Fasilitas Unggulan (Taman Dahlia, Rumah Maggot, Buruan SAE, Bata Terawang)
                 </a>
               </li>
               <li>
@@ -53,7 +53,7 @@ export default function Footer() {
                   href="#edukasi-sampah"
                   className="hover:text-[#003e74] transition-colors"
                 >
-                  Booklet Pemilahan Sampah 3 Wadah
+                  Booklet Pemilahan Sampah 
                 </a>
               </li>
               <li>
@@ -66,10 +66,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/profil"
+                  href="/galeri"
                   className="hover:text-[#003e74] transition-colors"
                 >
-                  Profil &amp; Struktur Kepengurusan RW 18
+                  Galeri &amp; Dokumentasi Kegiatan
                 </Link>
               </li>
             </ul>
@@ -83,7 +83,7 @@ export default function Footer() {
             <ul className="flex flex-col gap-2.5 text-sm text-slate-600">
               <li>Program KKN Tematik UNIKOM</li>
               <li>Pemerintah Provinsi Jawa Barat</li>
-              <li>Diskominfo &amp; DLH Kota Bandung</li>
+              <li>Diktisaintek &amp; DLH Kota Bandung</li>
               <li>Pengurus RW 18 Kelurahan Sadang Serang</li>
               <li>
                 <a

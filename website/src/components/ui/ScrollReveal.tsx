@@ -22,15 +22,13 @@ export default function ScrollReveal({
   y = 30,
   once = true,
   rootMargin = "0px 0px -100px 0px",
-  as = "div",
 }: ScrollRevealProps) {
   return (
     <motion.div
-      as={as}
       className={className}
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once, rootMargin }}
+      viewport={{ once, margin: rootMargin as any }}
       transition={{ duration, delay, ease: "easeOut" }}
     >
       {children}
@@ -62,7 +60,7 @@ export function ScrollRevealStagger({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once, rootMargin }}
+      viewport={{ once, margin: rootMargin as any }}
       variants={{
         hidden: { opacity: 0 },
         visible: { transition: { staggerChildren: stagger, delayChildren: delay } },

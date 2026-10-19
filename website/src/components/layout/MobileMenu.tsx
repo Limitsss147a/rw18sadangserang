@@ -16,9 +16,9 @@ interface MobileMenuProps {
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const pathname = usePathname();
   
-  // Track expanded accordion items (Fasilitas expanded by default if relevant)
+  // Track expanded accordion items (Fasilitas Unggulan expanded by default if relevant)
   const [expandedItems, setExpandedItems] = useState<Record<string, boolean>>({
-    Fasilitas: true,
+    "Fasilitas Unggulan": true,
   });
 
   // Auto-close menu when route changes

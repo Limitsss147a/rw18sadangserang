@@ -66,22 +66,24 @@ export default function Navbar() {
           {/* Logo Area */}
           <Link
             href="/"
-            className="flex items-center gap-3 group focus:outline-hidden rounded-xl py-1 min-h-[48px]"
+            className="flex items-center gap-2.5 group focus:outline-hidden rounded-xl py-1 min-h-[48px]"
             aria-label="Beranda RW 18 Kelurahan Sadang Serang"
           >
-            <div className="w-10 h-10 rounded-xl bg-[#003e74] flex items-center justify-center text-white font-bold text-lg shadow-xs group-hover:bg-[#195694] transition-colors shrink-0">
-              18
+            <div className="relative w-9 h-9 sm:w-10 sm:h-10 shrink-0 flex items-center justify-center">
+              <Image
+                src="/images/logos/logo-kkn.png"
+                alt="Logo RW 18 Sadang Serang"
+                width={40}
+                height={40}
+                className="w-full h-full object-contain"
+                priority
+              />
             </div>
             <div className="flex flex-col text-left">
-              <div className="flex items-center gap-2">
-                <span className="text-lg sm:text-xl font-bold font-heading text-[#003e74] leading-tight">
-                  RW 18 Sadang Serang
-                </span>
-                <span className="hidden xl:inline-block px-2 py-0.5 rounded-full bg-[#dbe9ff] text-[#003e74] text-xs font-semibold">
-                  KKN UNIKOM
-                </span>
-              </div>
-              <span className="text-xs text-slate-500 hidden sm:block">
+              <span className="text-base sm:text-lg font-bold font-heading text-[#003e74] leading-tight">
+                RW 18 Sadang Serang
+              </span>
+              <span className="text-[11px] sm:text-xs text-slate-500 font-medium">
                 Kelurahan Sadang Serang, Coblong, Kota Bandung
               </span>
             </div>
@@ -196,18 +198,21 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <Link
               href="/edukasi"
-              className="hidden md:inline-flex items-center justify-center px-5 h-11 rounded-full bg-[#1b6d24] text-white text-sm font-semibold shadow-xs hover:bg-emerald-800 transition-colors"
+              className="hidden md:inline-flex items-center justify-center px-6 h-11 rounded-full bg-[#1b6d24] text-white text-sm font-semibold shadow-xs hover:bg-emerald-800 transition-colors"
             >
-              Edukasi Sampah Terpilah
+              Edukasi Sampah
             </Link>
 
-            <Link
-              href="/profil"
-              className="w-9 h-9 rounded-full bg-[#003e74] text-white hidden sm:flex items-center justify-center shrink-0 hover:bg-[#195694] transition-colors"
-              title="Profil RW 18"
+            <a
+              href="https://instagram.com/kartaunit18_"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 rounded-full bg-[#003e74] text-white hidden sm:flex items-center justify-center shrink-0 hover:bg-[#195694] transition-colors shadow-xs"
+              title="Karang Taruna RW 18 (@kartaunit18_)"
+              aria-label="Kontak Karang Taruna RW 18"
             >
               <User className="w-5 h-5" />
-            </Link>
+            </a>
 
             {/* Mobile Hamburger Button */}
             <button

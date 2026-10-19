@@ -9,9 +9,8 @@ export interface NavItem {
 
 export const navigation: NavItem[] = [
   { label: "Beranda", href: "/" },
-  { label: "Profil", href: "/profil" },
   {
-    label: "Fasilitas",
+    label: "Fasilitas Unggulan",
     href: "/fasilitas",
     children: [
       { label: "Taman Dahlia", href: "/fasilitas/taman-dahlia" },
@@ -20,7 +19,7 @@ export const navigation: NavItem[] = [
       { label: "Bata Terawang", href: "/fasilitas/bata-terawang" },
     ],
   },
-  { label: "SDGs", href: "/sdgs" },
+  { label: "SDGs & Capaian", href: "/sdgs" },
   { label: "Edukasi Sampah", href: "/edukasi" },
   { label: "Galeri", href: "/galeri" },
 ];
