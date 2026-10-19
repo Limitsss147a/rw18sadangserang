@@ -283,24 +283,8 @@ export default function EducationCTA() {
                 Disusun khusus berdasarkan booklet edukasi resmi RW 18 Sadang Serang. 
                 Memuat infografis 3 wadah pemilahan, tips pengelolaan sampah dapur, serta jadwal pengangkutan 
                 lingkungan. Dapat dibaca langsung via flipbook digital atau diunduh gratis dalam format PDF.
-              </p>
-
-              {/* Quick Feature Checklist */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
-                <div className="px-3 py-2 rounded-xl bg-[#eef4ff] border border-blue-200 text-xs font-semibold text-[#003e74] flex items-center gap-2">
-                  <span>✅</span>
-                  <span>Font ramah lansia (18px+)</span>
-                </div>
-                <div className="px-3 py-2 rounded-xl bg-[#eef4ff] border border-blue-200 text-xs font-semibold text-[#003e74] flex items-center gap-2">
-                  <span>✅</span>
-                  <span>Infografis asli RW 18</span>
-                </div>
-                <div className="px-3 py-2 rounded-xl bg-[#eef4ff] border border-blue-200 text-xs font-semibold text-[#003e74] flex items-center gap-2">
-                  <span>✅</span>
-                  <span>Flipbook &amp; PDF Resmi</span>
-                </div>
-              </div>
-
+              </p>           
+              
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Link

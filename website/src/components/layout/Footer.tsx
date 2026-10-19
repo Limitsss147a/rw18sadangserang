@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { ExternalLink } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -63,6 +64,17 @@ export default function Footer() {
                 >
                   Galeri &amp; Dokumentasi Kegiatan
                 </Link>
+              </li>
+              <li>
+                <a
+                  href="https://maps.app.goo.gl/MBDpJ1thWyLbS2x16"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-emerald-700 hover:text-emerald-800 font-medium transition-colors inline-flex items-center gap-1.5"
+                >
+                  <span>Titik Peta: Taman Dahlia RW 18 (Google Maps)</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
               </li>
             </ul>
           </div>

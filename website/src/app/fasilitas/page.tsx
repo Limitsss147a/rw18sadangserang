@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Building2, Award } from "lucide-react";
+import { ArrowRight, Building2, Award, MapPin, ExternalLink, Compass } from "lucide-react";
 import { facilities } from "@/data/facilities";
 
 export const metadata: Metadata = {
@@ -93,6 +93,83 @@ export default function FasilitasHubPage() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Cluster Map Section */}
+      <section className="bg-white py-16 border-t border-slate-200">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gradient-to-br from-[#f8f9ff] to-[#edf2ff] rounded-3xl p-6 sm:p-10 border border-blue-100 shadow-sm">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-5 flex flex-col gap-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold w-fit">
+                  <MapPin className="w-3.5 h-3.5" />
+                  <span>Satu Lokasi Terpadu</span>
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#0f355c]">
+                  Kunjungi Seluruh Fasilitas di Taman Dahlia RW 18
+                </h3>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  Keempat fasilitas lingkungan (Taman Dahlia, Rumah Maggot BSF, Buruan SAE, dan Komposter Bata Terawang) berada di dalam satu kawasan yang sama di Kompleks RW 18 Sadang Serang.
+                </p>
+
+                <div className="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-2xs flex flex-col gap-2">
+                  <div className="flex items-center justify-between text-xs text-slate-500 font-semibold">
+                    <span>Koordinat Google Maps</span>
+                    <span className="text-emerald-700 font-bold">-6.8940265, 107.6265568</span>
+                  </div>
+                  <p className="text-xs text-slate-600">
+                    Komp. RW 18, Kel. Sadang Serang, Kec. Coblong, Kota Bandung 40134
+                  </p>
+                </div>
+
+                <div>
+                  <a
+                    href="https://maps.app.goo.gl/MBDpJ1thWyLbS2x16"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 h-12 rounded-xl bg-[#003e74] hover:bg-[#195694] text-white text-sm font-semibold transition-colors shadow-xs"
+                  >
+                    <Compass className="w-4 h-4 text-blue-200" />
+                    <span>Petunjuk Arah Google Maps</span>
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+
+              {/* Map Preview Image */}
+              <div className="lg:col-span-7">
+                <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] rounded-2xl overflow-hidden border-2 border-white shadow-md group">
+                  <Image
+                    src="/images/taman-dahlia-google-maps.png"
+                    alt="Peta Google Maps Taman Dahlia RW 18"
+                    fill
+                    className="object-cover group-hover:scale-102 transition-transform duration-300"
+                  />
+                  {/* Pin overlay */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-none z-10">
+                    <span className="animate-ping absolute inline-flex h-10 w-10 rounded-full bg-red-400 opacity-75" />
+                    <div className="relative w-9 h-9 rounded-full bg-red-600 text-white flex items-center justify-center shadow-lg border-2 border-white">
+                      <MapPin className="w-5 h-5 fill-white" />
+                    </div>
+                    <span className="mt-1 px-2.5 py-0.5 rounded-full bg-slate-900/90 text-white text-[10px] font-bold shadow-md">
+                      Taman Dahlia RW 18
+                    </span>
+                  </div>
+
+                  <a
+                    href="https://maps.app.goo.gl/MBDpJ1thWyLbS2x16"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/95 hover:bg-white text-xs font-semibold text-[#003e74] rounded-lg shadow-md border border-slate-200 transition-all"
+                  >
+                    <span>Buka Google Maps</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
