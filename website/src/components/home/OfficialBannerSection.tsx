@@ -33,7 +33,7 @@ export default function OfficialBannerSection() {
               </h2>
 
               <p className="text-sm sm:text-base text-white/85 leading-relaxed mt-2">
-                Pemilahan sejak dari dapur menentukan kualitas pakan Rumah Maggot BSF dan kesuburan pupuk kasgot di kebun Buruan SAE. Jika sampah sudah tercampur di gerobak sampah, nilai ekonomis dan efektivitas pengolahannya turun hingga 80%.
+                Pemilahan sejak dari dapur menentukan kualitas pakan Rumah Maggot BSF dan kesuburan pupuk kasgot di kebun Buruan SAE. Jika sampah sudah tercampur di gerobak sampah, nilai ekonomis dan efektivitas pengolahannya akan menurun.
               </p>
             </div>
 

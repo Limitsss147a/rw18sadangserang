@@ -1,10 +1,10 @@
 "use client";
 
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { Sparkles, MapPin, Eye } from "lucide-react";
-import { InfiniteSlider } from "@/components/ui/infinite-slider";
+import { ChevronLeft, ChevronRight, MapPin, Sparkles } from "lucide-react";
 
-interface PhotoCard {
+interface PhotoSlide {
   id: number;
   title: string;
   subtitle: string;
@@ -14,29 +14,29 @@ interface PhotoCard {
   facility: string;
 }
 
-const rowOnePhotos: PhotoCard[] = [
+const photoSlides: PhotoSlide[] = [
   {
     id: 1,
     title: "Taman Dahlia RW 18",
-    subtitle: "RTH & Pusat Interaksi Warga",
+    subtitle: "Ruang terbuka hijau & arena interaksi sosial warga lintas generasi",
     tag: "RTH Publik",
-    tagColor: "bg-emerald-700 text-white",
+    tagColor: "bg-emerald-600 text-white",
     image: "/images/facilities/taman-dahlia-1.jpg",
     facility: "Taman Dahlia",
   },
   {
     id: 2,
     title: "Rumah Maggot BSF",
-    subtitle: "Biokonversi Sampah Organik 0 Bau",
+    subtitle: "Biokonversi sampah makanan dapur oleh larva BSF tanpa bau & pupuk kasgot",
     tag: "Biokonversi",
-    tagColor: "bg-amber-700 text-white",
+    tagColor: "bg-amber-600 text-white",
     image: "/images/facilities/rumah-maggot-1.jpg",
     facility: "Rumah Maggot",
   },
   {
     id: 3,
-    title: "Panen Sayur Buruan SAE",
-    subtitle: "Sayuran Hijau Segar Non-Kimia",
+    title: "Panen Sayuran Buruan SAE",
+    subtitle: "Hasil panen sayur sosin dan kangkung pekarangan non-pestisida kimia",
     tag: "Urban Farming",
     tagColor: "bg-green-700 text-white",
     image: "/images/gallery/panen-buruan-sae.jpeg",
@@ -44,168 +44,277 @@ const rowOnePhotos: PhotoCard[] = [
   },
   {
     id: 4,
-    title: "Pembagian MBG RW 18",
-    subtitle: "Nutrisi Bergizi Warga & Anak",
-    tag: "Aksi Sosial",
-    tagColor: "bg-blue-700 text-white",
-    image: "/images/gallery/pembagian-mbg.jpeg",
-    facility: "Sosial Warga",
+    title: "Komposter Bata Terawang",
+    subtitle: "Sarana pengomposan aerobik beraerasi alami dengan susunan bata berongga",
+    tag: "Bata Terawang",
+    tagColor: "bg-orange-600 text-white",
+    image: "/images/facilities/bata-terawang-1.jpg",
+    facility: "Bata Terawang",
   },
   {
     id: 5,
-    title: "Konservasi Bunga Dahlia",
-    subtitle: "Pelestarian Vegetasi Flora Lokal",
-    tag: "Konservasi",
-    tagColor: "bg-rose-700 text-white",
-    image: "/images/facilities/taman-dahlia-3.jpg",
-    facility: "Taman Dahlia",
+    title: "Pekarangan Pangan Buruan SAE",
+    subtitle: "Pemanfaatan lahan pekarangan perkotaan menjadi sentra sayuran produktif",
+    tag: "Ketahanan Pangan",
+    tagColor: "bg-emerald-700 text-white",
+    image: "/images/facilities/buruan-sae-1.jpg",
+    facility: "Buruan SAE",
   },
-];
-
-const rowTwoPhotos: PhotoCard[] = [
   {
     id: 6,
-    title: "Penarikan Sampah Organik",
-    subtitle: "Pilah Sampah Langsung Dari Dapur",
+    title: "Penarikan Sampah Organik Warga",
+    subtitle: "Pengambilan rutin sampah sisa makanan terpilah langsung dari dapur keluarga",
     tag: "Pilah Sampah",
-    tagColor: "bg-sky-700 text-white",
+    tagColor: "bg-sky-600 text-white",
     image: "/images/gallery/penarikan-sampah-organik-1.jpeg",
     facility: "Pilah Sampah",
   },
   {
     id: 7,
-    title: "Kebun Buruan SAE",
-    subtitle: "Ketahanan Pangan Pekarangan",
-    tag: "Ketahanan Pangan",
-    tagColor: "bg-emerald-800 text-white",
-    image: "/images/facilities/buruan-sae-1.jpg",
-    facility: "Buruan SAE",
-  },
-  {
-    id: 8,
-    title: "Komposter Bata Terawang",
-    subtitle: "Pengomposan Aerobik Alami",
-    tag: "Bata Terawang",
-    tagColor: "bg-orange-700 text-white",
-    image: "/images/facilities/bata-terawang-1.jpg",
-    facility: "Bata Terawang",
-  },
-  {
-    id: 9,
-    title: "Pelayanan Posyandu Balita",
-    subtitle: "Layanan Kesehatan & Nutrisi Anak",
+    title: "Pelayanan Rutin Posyandu Balita",
+    subtitle: "Pemeriksaan kesehatan, penimbangan dan pemantauan gizi anak balita RW 18",
     tag: "Posyandu RW 18",
-    tagColor: "bg-indigo-700 text-white",
+    tagColor: "bg-indigo-600 text-white",
     image: "/images/gallery/posyandu-1.jpeg",
     facility: "Kesehatan Warga",
   },
   {
-    id: 10,
+    id: 8,
+    title: "Program Makan Bergizi Gratis (MBG)",
+    subtitle: "Penyaluran makanan bergizi sehat untuk pemenuhan nutrisi warga & anak-anak",
+    tag: "Aksi Sosial",
+    tagColor: "bg-blue-600 text-white",
+    image: "/images/gallery/pembagian-mbg.jpeg",
+    facility: "Sosial Warga",
+  },
+  {
+    id: 9,
     title: "Pengomposan Sampah Kebun",
-    subtitle: "Olah Daun Gugur Jadi Pupuk",
+    subtitle: "Pengolahan sampah daun gugur dan kebun menjadi pupuk organik matang",
     tag: "Pupuk Kompos",
     tagColor: "bg-teal-700 text-white",
     image: "/images/facilities/bata-terawang-2.jpg",
     facility: "Bata Terawang",
   },
+  {
+    id: 10,
+    title: "Konservasi Bunga & Flora Taman",
+    subtitle: "Penataan aneka bunga dahlia dan tanaman hias gotong royong warga & kader PKK",
+    tag: "Konservasi Flora",
+    tagColor: "bg-rose-600 text-white",
+    image: "/images/facilities/taman-dahlia-3.jpg",
+    facility: "Taman Dahlia",
+  },
 ];
 
-function CardItem({ item }: { item: PhotoCard }) {
-  return (
-    <div className="relative w-[280px] sm:w-[320px] h-[190px] sm:h-[205px] shrink-0 rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-md group/card select-none">
-      <Image
-        src={item.image}
-        alt={item.title}
-        fill
-        sizes="(max-width: 640px) 280px, 320px"
-        className="object-cover group-hover/card:scale-105 transition-transform duration-500"
-      />
-      {/* Dark gradient overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent pointer-events-none" />
-
-      {/* Top Floating Badge */}
-      <div className="absolute top-3 left-3 z-10">
-        <span
-          className={`px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider shadow-xs ${item.tagColor}`}
-        >
-          {item.tag}
-        </span>
-      </div>
-
-      {/* Bottom Title & Subtitle */}
-      <div className="absolute bottom-3 left-3.5 right-3.5 z-10 text-white">
-        <h4 className="text-sm sm:text-base font-bold font-heading line-clamp-1 leading-snug drop-shadow-sm">
-          {item.title}
-        </h4>
-        <p className="text-xs text-slate-200 line-clamp-1 opacity-90 mt-0.5">
-          {item.subtitle}
-        </p>
-      </div>
-    </div>
-  );
-}
-
 export default function HeroPhotoSlider() {
-  return (
-    <div className="relative w-full rounded-[2rem] sm:rounded-[2.5rem] p-3.5 sm:p-5 bg-gradient-to-br from-white via-white/95 to-blue-50/70 border border-slate-200/90 shadow-2xl shadow-blue-900/10 overflow-hidden">
-      {/* Left and Right Smooth Edge Gradient Masks */}
-      <div className="absolute top-0 bottom-0 left-0 w-12 sm:w-20 bg-gradient-to-r from-white via-white/80 to-transparent z-20 pointer-events-none rounded-l-[2rem]" />
-      <div className="absolute top-0 bottom-0 right-0 w-12 sm:w-20 bg-gradient-to-l from-white via-white/80 to-transparent z-20 pointer-events-none rounded-r-[2rem]" />
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+  const thumbnailsRef = useRef<HTMLDivElement | null>(null);
 
-      {/* Top Header Ribbon */}
-      <div className="flex items-center justify-between px-2 pt-1 pb-3 border-b border-slate-100 mb-3.5">
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev === 0 ? photoSlides.length - 1 : prev - 1));
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev === photoSlides.length - 1 ? 0 : prev + 1));
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+  };
+
+  // Touch swipe support for mobile
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current === null || touchEndX.current === null) return;
+    const distance = touchStartX.current - touchEndX.current;
+    const minSwipeDistance = 45;
+
+    if (distance > minSwipeDistance) {
+      // Swiped left -> next
+      nextSlide();
+    } else if (distance < -minSwipeDistance) {
+      // Swiped right -> prev
+      prevSlide();
+    }
+
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
+  // Keep active thumbnail centered in thumbnail row
+  useEffect(() => {
+    if (!thumbnailsRef.current) return;
+    const container = thumbnailsRef.current;
+    const activeThumbnail = container.children[currentIndex] as HTMLElement | undefined;
+    if (activeThumbnail) {
+      const scrollLeft =
+        activeThumbnail.offsetLeft -
+        container.offsetWidth / 2 +
+        activeThumbnail.offsetWidth / 2;
+      container.scrollTo({ left: scrollLeft, behavior: "smooth" });
+    }
+  }, [currentIndex]);
+
+  const current = photoSlides[currentIndex];
+
+  return (
+    <div className="relative w-full rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-5 bg-white border border-slate-200 shadow-xl select-none">
+      {/* Top Header Bar */}
+      <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 mb-3.5">
         <div className="inline-flex items-center gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+          <span className="w-2.5 h-2.5 rounded-full bg-emerald-600" />
           <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#003e74]">
-            Galeri Bergerak Ekosistem RW 18
+            Galeri Dokumentasi RW 18
           </span>
         </div>
-        <div className="hidden sm:inline-flex items-center gap-1.5 text-[11px] text-slate-500 font-medium bg-slate-50 px-2.5 py-1 rounded-full border border-slate-200/60">
-          <Eye className="w-3 h-3 text-emerald-600" />
-          <span>Bergeser Otomatis • Arahkan Kursor untuk Jeda</span>
+
+        {/* Manual Slide Counter & Controls */}
+        <div className="flex items-center gap-2">
+          <span className="text-xs font-semibold text-slate-500 font-mono px-2 py-0.5 rounded-md bg-slate-100">
+            {currentIndex + 1} / {photoSlides.length}
+          </span>
+          <div className="flex items-center gap-1">
+            <button
+              type="button"
+              onClick={prevSlide}
+              aria-label="Foto sebelumnya"
+              className="w-8 h-8 rounded-lg bg-slate-100 hover:bg-[#003e74] hover:text-white text-slate-700 flex items-center justify-center transition-colors cursor-pointer"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            <button
+              type="button"
+              onClick={nextSlide}
+              aria-label="Foto selanjutnya"
+              className="w-8 h-8 rounded-lg bg-slate-100 hover:bg-[#003e74] hover:text-white text-slate-700 flex items-center justify-center transition-colors cursor-pointer"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Dual Continuous Infinite Horizontal Sliders */}
-      <div className="space-y-3.5">
-        {/* Row 1: Sliding Left */}
-        <InfiniteSlider
-          direction="horizontal"
-          gap={14}
-          duration={25}
-          durationOnHover={75}
-          className="w-full py-0.5"
-        >
-          {rowOnePhotos.map((item) => (
-            <CardItem key={`r1-${item.id}`} item={item} />
-          ))}
-        </InfiniteSlider>
+      {/* Main Photo Display Card (Clean, NO gradient overlay) */}
+      <div
+        className="relative w-full aspect-[16/10] sm:aspect-[16/10] rounded-2xl overflow-hidden bg-slate-100 border border-slate-200"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        <Image
+          src={current.image}
+          alt={current.title}
+          fill
+          priority
+          sizes="(max-width: 768px) 100vw, 650px"
+          className="object-cover transition-opacity duration-300"
+        />
 
-        {/* Row 2: Sliding Right (Reverse) */}
-        <InfiniteSlider
-          direction="horizontal"
-          gap={14}
-          duration={30}
-          durationOnHover={75}
-          reverse={true}
-          className="w-full py-0.5"
+        {/* Tag Badge */}
+        <div className="absolute top-3 left-3 z-10">
+          <span
+            className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm ${current.tagColor}`}
+          >
+            {current.tag}
+          </span>
+        </div>
+
+        {/* Left & Right Click Targets for intuitive manual sliding on the image */}
+        <button
+          type="button"
+          onClick={prevSlide}
+          aria-label="Foto sebelumnya"
+          className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 hover:bg-white text-slate-800 shadow-md flex items-center justify-center transition-transform hover:scale-105 active:scale-95 cursor-pointer z-10"
         >
-          {rowTwoPhotos.map((item) => (
-            <CardItem key={`r2-${item.id}`} item={item} />
-          ))}
-        </InfiniteSlider>
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+
+        <button
+          type="button"
+          onClick={nextSlide}
+          aria-label="Foto selanjutnya"
+          className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 hover:bg-white text-slate-800 shadow-md flex items-center justify-center transition-transform hover:scale-105 active:scale-95 cursor-pointer z-10"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
       </div>
 
-      {/* Bottom Floating Info Pill */}
-      <div className="mt-3.5 px-4 py-2.5 rounded-xl bg-slate-50/90 border border-slate-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-600">
-        <div className="flex items-center gap-2 font-medium">
-          <Sparkles className="w-3.5 h-3.5 text-amber-500 shrink-0" />
-          <span>Terintegrasi BSF × Buruan SAE × Bata Terawang × Taman Dahlia</span>
+      {/* Clean White Caption Box (Below photo, NO gradient) */}
+      <div className="pt-3.5 pb-2">
+        <h4 className="text-base sm:text-lg font-bold font-heading text-slate-900 leading-snug">
+          {current.title}
+        </h4>
+        <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+          {current.subtitle}
+        </p>
+      </div>
+
+      {/* Manual Slide Dots */}
+      <div className="flex items-center justify-center gap-1.5 py-2">
+        {photoSlides.map((slide, idx) => (
+          <button
+            key={slide.id}
+            type="button"
+            onClick={() => goToSlide(idx)}
+            aria-label={`Lihat foto ${idx + 1}`}
+            className={`h-2 rounded-full transition-all cursor-pointer ${
+              idx === currentIndex
+                ? "w-6 bg-[#003e74]"
+                : "w-2 bg-slate-200 hover:bg-slate-300"
+            }`}
+          />
+        ))}
+      </div>
+
+      {/* Scrollable Thumbnail Strip for quick manual jumping */}
+      <div
+        ref={thumbnailsRef}
+        className="flex items-center gap-2 overflow-x-auto no-scrollbar pt-2 pb-1 border-t border-slate-100"
+        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+      >
+        {photoSlides.map((slide, idx) => {
+          const isActive = idx === currentIndex;
+          return (
+            <button
+              key={`thumb-${slide.id}`}
+              type="button"
+              onClick={() => goToSlide(idx)}
+              aria-label={`Pilih foto ${slide.title}`}
+              className={`relative w-16 sm:w-20 h-12 sm:h-14 rounded-xl overflow-hidden shrink-0 border-2 transition-all cursor-pointer ${
+                isActive
+                  ? "border-[#003e74] scale-105 shadow-sm"
+                  : "border-transparent opacity-60 hover:opacity-100"
+              }`}
+            >
+              <Image
+                src={slide.image}
+                alt={slide.title}
+                fill
+                sizes="80px"
+                className="object-cover"
+              />
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Clean Bottom Note */}
+      <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+        <div className="flex items-center gap-1.5">
+          <MapPin className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+          <span>Kawasan Lingkungan RW 18 Sadang Serang</span>
         </div>
-        <div className="flex items-center gap-1.5 font-semibold text-emerald-700 self-end sm:self-auto">
-          <MapPin className="w-3.5 h-3.5" />
-          <span>10 Foto Kegiatan Asli RW 18</span>
-        </div>
+        <span className="text-[11px] text-slate-400">Geser atau klik panah</span>
       </div>
     </div>
   );

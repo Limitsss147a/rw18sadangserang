@@ -92,7 +92,6 @@ export default function WasteSortingQuiz() {
     <div className="w-full bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-md">
       <div className="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
         <div className="flex items-center gap-2">
-          <span className="text-xl">🎯</span>
           <h3 className="text-lg sm:text-xl font-bold font-heading text-[#0f355c]">
             Kuis Uji Coba: Sampah Ini Masuk Wadah Mana?
           </h3>

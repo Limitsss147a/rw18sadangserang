@@ -93,7 +93,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     <AnimatePresence>
       {isOpen && (
         <div
-          className="fixed inset-0 z-[60] flex justify-end lg:hidden"
+          className="fixed inset-0 z-[60] flex justify-start lg:hidden"
           role="dialog"
           aria-modal="true"
           aria-label="Menu navigasi mobile"
@@ -109,13 +109,13 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             aria-hidden="true"
           />
 
-          {/* Drawer panel with responsive slide animation */}
+          {/* Drawer panel opening from LEFT with responsive slide animation */}
           <motion.div
-            initial={{ x: "100%" }}
+            initial={{ x: "-100%" }}
             animate={{ x: 0 }}
-            exit={{ x: "100%" }}
+            exit={{ x: "-100%" }}
             transition={{ type: "spring", damping: 30, stiffness: 300 }}
-            className="relative z-10 flex flex-col w-[85vw] max-w-sm sm:max-w-md bg-white h-[100dvh] shadow-2xl border-l border-slate-200 overflow-hidden"
+            className="relative z-10 flex flex-col w-[85vw] max-w-sm sm:max-w-md bg-white h-[100dvh] shadow-2xl border-r border-slate-200 overflow-hidden"
           >
             {/* Drawer Header */}
             <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100 bg-white/95 backdrop-blur-sm shrink-0">

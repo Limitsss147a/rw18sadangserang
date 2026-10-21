@@ -72,7 +72,7 @@ export default function FacilityCards() {
           </div>
           <div className="hidden md:flex items-center">
             <span className="px-4 py-2 rounded-full bg-white border border-slate-200 text-xs font-semibold text-[#003e74] shadow-xs">
-              Coblong Lestari 2025
+              Coblong Lestari
             </span>
           </div>
         </div>

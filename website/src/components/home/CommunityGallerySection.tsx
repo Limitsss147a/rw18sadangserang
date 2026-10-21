@@ -19,8 +19,8 @@ export default function CommunityGallerySection() {
       image: "/images/gallery/panen-buruan-sae.jpeg",
     },
     {
-      title: "Pelayanan Posyandu Balita",
-      desc: "Pemeriksaan tumbuh kembang anak & balita secara rutin oleh kader RW 18",
+      title: "Pelayanan Posyandu Lansia & Balita",
+      desc: "Pemeriksaan kesehatan lansia dan tumbuh kembang balita secara rutin oleh kader RW 18",
       tag: "Kegiatan Warga",
       tagColor: "text-amber-800",
       image: "/images/gallery/posyandu-1.jpeg",

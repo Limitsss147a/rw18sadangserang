@@ -303,23 +303,7 @@ export default function EducationCTA() {
                   <Download className="w-5 h-5" />
                   <span>Unduh PDF (Gratis)</span>
                 </a>
-              </div>
-
-              {/* Video Teaser Notice */}
-              <div className="mt-2 p-4 rounded-2xl bg-[#eef4ff] border border-emerald-200 flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-[#1b6d24] flex items-center justify-center text-white shrink-0 shadow-xs">
-                  <PlayCircle className="w-6 h-6" />
-                </div>
-                <div>
-                  <p className="text-sm font-bold text-slate-900 font-heading">
-                    Tersedia Video Edukasi Bertakarir (Subtitles)
-                  </p>
-                  <p className="text-xs sm:text-sm text-slate-600">
-                    Video penjelasan interaktif 3 menit, ramah tuna rungu dan
-                    lansia dengan narasi bahasa Sunda dan Indonesia.
-                  </p>
-                </div>
-              </div>
+              </div>            
             </div>
           </div>
         </div>

@@ -17,7 +17,7 @@ export default function CircularFlowSection() {
       icon: Dna,
       title: "Rumah Maggot",
       desc: "Larva BSF mengurai sampah organik dalam 24 jam; menghasilkan kasgot bernutrisi tinggi.",
-      highlight: "Biokonversi Cepat 0 Bau",
+      highlight: "Biokonversi Cepat",
       badgeColor: "bg-blue-100 text-[#003e74]",
       accent: "text-[#003e74]",
       borderHover: "hover:border-[#003e74]",

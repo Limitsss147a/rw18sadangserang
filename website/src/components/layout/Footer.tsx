@@ -128,7 +128,6 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>
             Hak Cipta © 2026 RW 18 Kelurahan Sadang Serang, Coblong, Kota Bandung.
-            Dibuat dengan semangat gotong royong warga.
           </p>
 
           <div className="flex items-center gap-3">
