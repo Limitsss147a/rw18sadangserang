@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, ChevronDown, User } from "lucide-react";
+import { Menu, ChevronDown } from "lucide-react";
 import navigation, { NavItem } from "@/data/navigation";
 import MobileMenu from "./MobileMenu";
 
@@ -198,7 +198,7 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* Right Action CTA & Avatar */}
+          {/* Right Action CTA & Instagram Logo */}
           <div className="flex items-center gap-3">
             <Link
               href="/edukasi"
@@ -207,15 +207,22 @@ export default function Navbar() {
               Edukasi Sampah
             </Link>
 
+            {/* Instagram Logo Button from Asset/Logo */}
             <a
               href="https://instagram.com/kartaunit18_"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 rounded-full bg-[#003e74] text-white hidden sm:flex items-center justify-center shrink-0 hover:bg-[#195694] transition-colors shadow-xs"
-              title="Karang Taruna RW 18 (@kartaunit18_)"
-              aria-label="Kontak Karang Taruna RW 18"
+              className="w-10 h-10 rounded-full bg-slate-50 hover:bg-slate-100 border border-slate-200/80 hidden sm:flex items-center justify-center shrink-0 hover:scale-105 active:scale-95 transition-all shadow-xs p-2"
+              title="Instagram Karang Taruna RW 18 (@kartaunit18_)"
+              aria-label="Instagram Karang Taruna RW 18"
             >
-              <User className="w-5 h-5" />
+              <Image
+                src="/images/logos/logo-instagram.png"
+                alt="Logo Instagram Karang Taruna RW 18"
+                width={24}
+                height={24}
+                className="w-full h-full object-contain"
+              />
             </a>
 
             {/* Mobile Hamburger Button */}
