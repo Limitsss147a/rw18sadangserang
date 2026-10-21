@@ -71,8 +71,8 @@ const photoSlides: PhotoSlide[] = [
   },
   {
     id: 7,
-    title: "Pelayanan Rutin Posyandu Balita",
-    subtitle: "Pemeriksaan kesehatan, penimbangan dan pemantauan gizi anak balita RW 18",
+    title: "Pelayanan Rutin Posyandu Lansia & Balita",
+    subtitle: "Pemeriksaan kesehatan lansia dan tumbuh kembang balita secara rutin oleh kader RW 18",
     tag: "Posyandu RW 18",
     tagColor: "bg-indigo-600 text-white",
     image: "/images/gallery/posyandu-1.jpeg",
