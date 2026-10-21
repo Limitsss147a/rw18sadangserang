@@ -6,8 +6,20 @@ import { Download, ChevronLeft, ChevronRight, BookOpen, Maximize2, X } from "luc
 
 export default function BookletViewer() {
   const pages = [
-    { page: 1, title: "Halaman 1 — Panduan Pemilahan", src: "/booklet/1.png" },
-    { page: 2, title: "Halaman 2 — Jadwal & Pengolahan", src: "/booklet/2.png" },
+    {
+      page: 1,
+      title: "Halaman 1 — Panduan Pemilahan",
+      src: "/booklet/1.png",
+      width: 1600,
+      height: 1000,
+    },
+    {
+      page: 2,
+      title: "Halaman 2 — Jadwal & Pengolahan",
+      src: "/booklet/2.png",
+      width: 1600,
+      height: 1000,
+    },
   ];
 
   const [currentPage, setCurrentPage] = useState(0);
@@ -49,16 +61,29 @@ export default function BookletViewer() {
         </div>
       </div>
 
-      {/* Main Page Display with Spine Shadow */}
-      <div className="relative w-full max-w-4xl mx-auto aspect-[16/11] sm:aspect-[16/10] bg-slate-100 rounded-2xl overflow-hidden border border-slate-200 shadow-inner flex items-center justify-center p-2 sm:p-4">
-        <div className="relative w-full h-full rounded-xl overflow-hidden shadow-2xl bg-white book-shadow">
-          <Image
-            src={pages[currentPage].src}
-            alt={pages[currentPage].title}
-            fill
-            className="object-contain"
-            priority
-          />
+      {/* Main Page Display with subtle flipbook feel */}
+      <div
+        className="relative w-full max-w-4xl mx-auto bg-slate-100 rounded-2xl overflow-hidden border border-slate-200 shadow-inner flex items-center justify-center p-2 sm:p-4"
+        style={{
+          aspectRatio: `${pages[currentPage].width} / ${pages[currentPage].height}`,
+        }}
+      >
+        <div className="relative w-full h-full">
+          <div className="absolute inset-0 rounded-xl translate-x-2 translate-y-2 bg-slate-200/80 blur-[1px]" />
+          <div
+            key={currentPage}
+            className="flipbook-page relative w-full h-full rounded-xl overflow-hidden shadow-2xl bg-white book-shadow"
+          >
+            <Image
+              src={pages[currentPage].src}
+              alt={pages[currentPage].title}
+              fill
+              className="object-cover"
+              priority
+              sizes="(max-width: 768px) 100vw, 80vw"
+            />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-4 bg-gradient-to-l from-slate-800/10 via-slate-700/5 to-transparent" />
+          </div>
         </div>
 
         {/* Page Switch Buttons */}
@@ -123,13 +148,15 @@ export default function BookletViewer() {
 
           <div
             className="relative w-full max-w-6xl max-h-[85vh] h-full"
+            style={{ aspectRatio: `${pages[currentPage].width} / ${pages[currentPage].height}` }}
             onClick={(e) => e.stopPropagation()}
           >
             <Image
               src={pages[currentPage].src}
               alt={pages[currentPage].title}
               fill
-              className="object-contain"
+              className="object-cover"
+              sizes="90vw"
             />
           </div>
 

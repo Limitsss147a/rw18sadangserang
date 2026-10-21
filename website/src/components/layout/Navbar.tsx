@@ -67,31 +67,42 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
-          {/* Logo Area */}
-          <Link
-            href="/"
-            className="flex items-center gap-2.5 group focus:outline-hidden rounded-xl py-1 min-h-[48px]"
-            aria-label="Beranda RW 18 Kelurahan Sadang Serang"
-          >
-            <div className="relative w-9 h-9 sm:w-10 sm:h-10 shrink-0 flex items-center justify-center">
-              <Image
-                src="/images/logos/logo-kkn.png"
-                alt="Logo RW 18 Sadang Serang"
-                width={40}
-                height={40}
-                className="w-full h-full object-contain"
-                priority
-              />
-            </div>
-            <div className="flex flex-col text-left">
-              <span className="text-base sm:text-lg font-bold font-heading text-[#003e74] leading-tight">
-                RW 18 Sadang Serang
-              </span>
-              <span className="text-[11px] sm:text-xs text-slate-500 font-medium">
-                Kelurahan Sadang Serang, Coblong, Kota Bandung
-              </span>
-            </div>
-          </Link>
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => setIsMobileMenuOpen(true)}
+              className="lg:hidden min-h-[44px] min-w-[44px] p-2 rounded-xl text-slate-700 hover:text-[#003e74] hover:bg-[#eef4ff] flex items-center justify-center transition-colors"
+              aria-label="Buka menu navigasi"
+              aria-expanded={isMobileMenuOpen}
+            >
+              <Menu className="w-6 h-6" />
+            </button>
+
+            <Link
+              href="/"
+              className="flex items-center gap-2.5 group focus:outline-hidden rounded-xl py-1 min-h-[48px]"
+              aria-label="Beranda RW 18 Kelurahan Sadang Serang"
+            >
+              <div className="relative w-9 h-9 sm:w-10 sm:h-10 shrink-0 flex items-center justify-center">
+                <Image
+                  src="/images/logos/logo-kkn.png"
+                  alt="Logo RW 18 Sadang Serang"
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-contain"
+                  priority
+                />
+              </div>
+              <div className="flex flex-col text-left">
+                <span className="text-base sm:text-lg font-bold font-heading text-[#003e74] leading-tight">
+                  RW 18 Sadang Serang
+                </span>
+                <span className="text-[11px] sm:text-xs text-slate-500 font-medium">
+                  Kelurahan Sadang Serang, Coblong, Kota Bandung
+                </span>
+              </div>
+            </Link>
+          </div>
 
           {/* Desktop Navigation */}
           <nav
@@ -225,16 +236,6 @@ export default function Navbar() {
               />
             </a>
 
-            {/* Mobile Hamburger Button */}
-            <button
-              type="button"
-              onClick={() => setIsMobileMenuOpen(true)}
-              className="lg:hidden min-h-[44px] min-w-[44px] p-2 rounded-xl text-slate-700 hover:text-[#003e74] hover:bg-[#eef4ff] flex items-center justify-center transition-colors"
-              aria-label="Buka menu navigasi"
-              aria-expanded={isMobileMenuOpen}
-            >
-              <Menu className="w-6 h-6" />
-            </button>
           </div>
         </div>
       </header>
