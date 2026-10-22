@@ -8,6 +8,7 @@ import {
   Package,
   BookOpen,
   PlayCircle,
+  Download,
   AlertTriangle,
   Sparkles,
 } from "lucide-react";
@@ -261,59 +262,55 @@ export default function EdukasiPage() {
 
       {/* Interactive Booklet Viewer Section */}
       <ScrollReveal delay={0.2}>
-        <section className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <section className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-10" id="booklet">
         <BookletViewer />
       </section>
       </ScrollReveal>
 
-      {/* Video Edukasi Bertakarir Section */}
+      {/* Video Edukasi Section */}
       <ScrollReveal delay={0.25}>
-        <section className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        <section className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-14" id="video-edukasi">
         <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-md">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
             <div>
               <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
                 <PlayCircle className="w-4 h-4 text-emerald-600" />
                 <span>Media Audio-Visual</span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold font-heading text-[#0f355c] mt-2">
-                Video Edukasi Pemilahan Sampah Bertakarir
+                Video Edukasi Pemilahan Sampah
               </h2>
-              <p className="text-xs sm:text-sm text-slate-600 mt-1">
-                Dilengkapi teks takarir (subtitles) bahasa Indonesia dan narasi
-                yang ramah bagi warga lansia serta tuna rungu.
-              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-2.5">
+              <span className="text-xs font-medium text-slate-500 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200">
+                ⏱️ Durasi: 1 Menit 25 Detik
+              </span>
+              <a
+                href="/videos/VideoEdukasi.mp4"
+                download="Video_Edukasi_Pilah_Sampah_RW18.mp4"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#003e74] bg-[#e4efff] hover:bg-[#d5e6ff] px-3.5 py-1.5 rounded-full transition-colors"
+                title="Unduh video edukasi untuk ditonton offline"
+              >
+                <Download className="w-3.5 h-3.5" />
+                <span>Unduh Video</span>
+              </a>
             </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            {/* Embedded Video Box */}
+            {/* Embedded Video Player */}
             <div className="lg:col-span-7">
-              <div className="relative aspect-video rounded-2xl overflow-hidden bg-slate-900 shadow-xl border border-slate-200 flex items-center justify-center text-white">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-between p-6">
-                  <div className="flex items-center justify-between">
-                    <span className="px-3 py-1 rounded-full bg-red-600 text-white text-xs font-bold">
-                      Video Resmi Kang Pisman
-                    </span>
-                    <span className="text-xs bg-black/60 backdrop-blur-sm px-2.5 py-1 rounded-full font-semibold">
-                      Durasi: 3 Menit
-                    </span>
-                  </div>
-
-                  <div className="text-center my-auto">
-                    <div className="w-16 h-16 rounded-full bg-emerald-600/90 text-white flex items-center justify-center mx-auto shadow-xl hover:scale-110 transition-transform cursor-pointer">
-                      <PlayCircle className="w-10 h-10" />
-                    </div>
-                    <p className="mt-3 text-sm font-bold">
-                      Praktik Mudah Pemilahan Sampah Rumah Tangga
-                    </p>
-                  </div>
-
-                  <div className="flex items-center justify-between text-xs text-slate-300">
-                    <span>Subtitle: Bahasa Indonesia (Aktif)</span>
-                    <span>DLH Kota Bandung × KKN UNIKOM</span>
-                  </div>
-                </div>
+              <div className="relative aspect-video rounded-2xl overflow-hidden bg-black shadow-xl border border-slate-200 group">
+                <video
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="w-full h-full object-contain bg-black"
+                >
+                  <source src="/videos/VideoEdukasi.mp4" type="video/mp4" />
+                  Browser Anda tidak mendukung pemutar video HTML5. Silakan unduh video melalui tombol yang disediakan.
+                </video>
               </div>
             </div>
 
@@ -325,15 +322,15 @@ export default function EdukasiPage() {
               <ul className="space-y-3 text-xs sm:text-sm text-slate-600">
                 <li className="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200">
                   <span className="font-bold text-[#003e74]">1.</span>
-                  <span>Cara menyediakan wadah sederhana di dapur tanpa biaya tambahan.</span>
+                  <span>Sampah organik bisa diolah dan dicacah menjadi pakan ternak.</span>
                 </li>
                 <li className="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200">
                   <span className="font-bold text-[#003e74]">2.</span>
-                  <span>Tips agar sampah organik sisa dapur tidak menimbulkan bau busuk.</span>
+                  <span>Mencampur sampah bisa merusak, membuat kotor, dan mencemari lingkungan.</span>
                 </li>
                 <li className="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200">
                   <span className="font-bold text-[#003e74]">3.</span>
-                  <span>Alur penjemputan sampah organik menuju biopon Rumah Maggot RW 18.</span>
+                  <span>Masa depan bumi ada di tangan kebiasaan kecil kita, yuk mulai pilah sampahmu hari ini.</span>
                 </li>
               </ul>
             </div>

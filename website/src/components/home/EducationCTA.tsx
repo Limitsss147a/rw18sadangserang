@@ -289,21 +289,29 @@ export default function EducationCTA() {
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Link
                   href="/edukasi#booklet"
-                  className="h-14 px-8 rounded-full bg-[#003e74] text-white font-semibold text-base inline-flex items-center justify-center gap-2 hover:bg-[#195694] shadow-sm transition-all"
+                  className="h-14 px-7 rounded-full bg-[#003e74] text-white font-semibold text-sm sm:text-base inline-flex items-center justify-center gap-2 hover:bg-[#195694] shadow-sm transition-all"
                 >
                   <BookOpen className="w-5 h-5" />
                   <span>Buka Booklet Digital (Flipbook)</span>
                 </Link>
 
+                <Link
+                  href="/edukasi#video-edukasi"
+                  className="h-14 px-7 rounded-full bg-emerald-600 text-white font-semibold text-sm sm:text-base inline-flex items-center justify-center gap-2 hover:bg-emerald-700 shadow-sm transition-all"
+                >
+                  <PlayCircle className="w-5 h-5" />
+                  <span>Tonton Video Edukasi</span>
+                </Link>
+
                 <a
                   href="/booklet/png2pdf.pdf"
                   download="Buku_Saku_Pilah_Sampah_RW18.pdf"
-                  className="h-14 px-8 rounded-full bg-[#e4efff] text-slate-900 font-semibold text-base inline-flex items-center justify-center gap-2 hover:bg-[#dbe9ff] transition-colors"
+                  className="h-14 px-7 rounded-full bg-[#e4efff] text-slate-900 font-semibold text-sm sm:text-base inline-flex items-center justify-center gap-2 hover:bg-[#dbe9ff] transition-colors"
                 >
                   <Download className="w-5 h-5" />
                   <span>Unduh PDF (Gratis)</span>
                 </a>
-              </div>            
+              </div>
             </div>
           </div>
         </div>
